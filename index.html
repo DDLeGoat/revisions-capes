@@ -96,10 +96,11 @@
             text-decoration: none;
             font-weight: bold;
             display: inline-block;
-            padding: 5px 10px;
+            padding: 8px 15px;
             border: 1px solid var(--secondary);
             border-radius: 4px;
             transition: 0.3s;
+            text-align: center;
         }
         a.notebook-link:hover {
             background-color: var(--secondary);
@@ -197,7 +198,7 @@
     <div class="sidebar">
         <h2>📚 CAPES MEEF</h2>
         <ul>
-            <li class="nav-btn active-menu" onclick="showSection('accueil', this)">🏠 Accueil Notebooks</li>
+            <li class="nav-btn active-menu" onclick="showSection('accueil', this)">🏠 Accueil & Oraux</li>
             <li class="nav-btn" onclick="showSection('histoire', this)">⏳ Plans Histoire</li>
             <li class="nav-btn" onclick="showSection('geographie', this)">🌍 Plans Géographie</li>
         </ul>
@@ -205,10 +206,10 @@
 
     <div class="content">
         <div id="accueil" class="section active">
-            <h1>Tableau de Bord - NotebookLM</h1>
+            <h1>Tableau de Bord des Révisions</h1>
             <p>Accès direct à tes carnets de synthèse pour chaque partie du programme et aux outils d'entraînement oraux.</p>
             
-            <h2>Préparation aux Oraux</h2>
+            <h2>Entraînement Oral</h2>
             <table>
                 <tr>
                     <th>Épreuve</th>
