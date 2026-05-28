@@ -28,6 +28,7 @@
             position: fixed;
             box-shadow: 2px 0 5px rgba(0,0,0,0.1);
             overflow-y: auto;
+            box-sizing: border-box;
         }
         .sidebar h2 {
             font-size: 1.4em;
@@ -54,9 +55,10 @@
         }
         /* Contenu Principal */
         .content {
-            margin-left: 300px;
+            margin-left: 260px;
             padding: 40px;
-            width: calc(100% - 340px);
+            width: calc(100% - 260px);
+            box-sizing: border-box;
         }
         h1 {
             color: var(--primary);
@@ -73,7 +75,9 @@
             background: white;
             box-shadow: 0 4px 8px rgba(0,0,0,0.05);
             border-radius: 8px;
-            overflow: hidden;
+            display: block; /* Permet le scroll sur mobile */
+            overflow-x: auto;
+            white-space: nowrap; /* Évite que le texte des tableaux s'écrase en hauteur */
         }
         th, td {
             padding: 15px;
@@ -128,6 +132,7 @@
         }
         .plan-card p {
             line-height: 1.6;
+            white-space: normal;
         }
         .plan-card ul {
             padding-left: 20px;
@@ -139,6 +144,51 @@
         .plan-card ul ul {
             margin-top: 5px;
             list-style-type: circle;
+        }
+
+        /* 📱 RESPONSIVE DESIGN (Mobiles & Tablettes) 📱 */
+        @media screen and (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding: 15px;
+            }
+            .sidebar h2 {
+                margin-top: 0;
+                font-size: 1.2em;
+            }
+            .sidebar ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            .sidebar li {
+                margin: 0;
+                flex: 1 1 auto;
+                text-align: center;
+                font-size: 0.9em;
+                padding: 10px;
+            }
+            .content {
+                margin-left: 0;
+                width: 100%;
+                padding: 20px;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+            /* Assouplissement du tableau sur mobile pour la lisibilité */
+            table {
+                white-space: normal; 
+            }
+            td, th {
+                min-width: 120px; /* Assure que les colonnes ne sont pas trop écrasées */
+            }
         }
     </style>
 </head>
