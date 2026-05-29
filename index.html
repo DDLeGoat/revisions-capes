@@ -65,19 +65,58 @@
             border-bottom: 3px solid var(--secondary);
             display: inline-block;
             padding-bottom: 5px;
+            margin-top: 0;
         }
+        
+        /* SOUS-ONGLETS (Accueil) */
+        .sub-tabs {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        .sub-tab-btn {
+            background-color: white;
+            border: 2px solid #ecf0f1;
+            padding: 10px 20px;
+            font-size: 1em;
+            font-weight: bold;
+            color: var(--primary);
+            cursor: pointer;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+        .sub-tab-btn:hover {
+            border-color: var(--secondary);
+            color: var(--secondary);
+        }
+        .sub-tab-btn.active-sub {
+            background-color: var(--secondary);
+            border-color: var(--secondary);
+            color: white;
+        }
+        .sub-tab-content {
+            display: none;
+            animation: fadeIn 0.4s;
+        }
+        .sub-tab-content.active-sub-content {
+            display: block;
+        }
+
         /* Tables pour l'Accueil */
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
             margin-bottom: 40px;
             background: white;
             box-shadow: 0 4px 8px rgba(0,0,0,0.05);
             border-radius: 8px;
             display: block; /* Permet le scroll sur mobile */
             overflow-x: auto;
-            white-space: nowrap; /* Évite que le texte des tableaux s'écrase en hauteur */
+            white-space: nowrap;
         }
         th, td {
             padding: 15px;
@@ -106,7 +145,7 @@
             background-color: var(--secondary);
             color: white;
         }
-        /* Sections Dynamiques */
+        /* Sections Dynamiques (Menu Principal) */
         .section {
             display: none;
             animation: fadeIn 0.5s;
@@ -169,48 +208,19 @@
         .timeline-panel .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
         .timeline-panel .tag { font-size: 12px; padding: 4px 12px; border-radius: 20px; border: 1px solid #bdc3c7; background: white; color: var(--primary); font-weight: bold; }
 
-        /* 📱 RESPONSIVE DESIGN (Mobiles & Tablettes) 📱 */
+        /* 📱 RESPONSIVE DESIGN 📱 */
         @media screen and (max-width: 768px) {
-            body {
-                flex-direction: column;
-            }
-            .sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
-                padding: 15px;
-            }
-            .sidebar h2 {
-                margin-top: 0;
-                font-size: 1.2em;
-            }
-            .sidebar ul {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 10px;
-            }
-            .sidebar li {
-                margin: 0;
-                flex: 1 1 auto;
-                text-align: center;
-                font-size: 0.9em;
-                padding: 10px;
-            }
-            .content {
-                margin-left: 0;
-                width: 100%;
-                padding: 20px;
-            }
-            h1 {
-                font-size: 1.5em;
-            }
-            table {
-                white-space: normal; 
-            }
-            td, th {
-                min-width: 120px; 
-            }
+            body { flex-direction: column; }
+            .sidebar { width: 100%; height: auto; position: relative; padding: 15px; }
+            .sidebar h2 { margin-top: 0; font-size: 1.2em; }
+            .sidebar ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+            .sidebar li { margin: 0; flex: 1 1 auto; text-align: center; font-size: 0.9em; padding: 10px; }
+            .content { margin-left: 0; width: 100%; padding: 20px; }
+            h1 { font-size: 1.5em; }
+            .sub-tabs { justify-content: center; }
+            .sub-tab-btn { flex: 1 1 auto; text-align: center; padding: 8px 10px; font-size: 0.9em; }
+            table { white-space: normal; }
+            td, th { min-width: 120px; }
         }
     </style>
 </head>
@@ -219,7 +229,7 @@
     <div class="sidebar">
         <h2>📚 CAPES MEEF</h2>
         <ul>
-            <li class="nav-btn active-menu" onclick="showSection('accueil', this)">🏠 Accueil & Oraux</li>
+            <li class="nav-btn active-menu" onclick="showSection('accueil', this)">🏠 Accueil & Liens</li>
             <li class="nav-btn" onclick="showSection('histoire', this)">⏳ Plans Histoire</li>
             <li class="nav-btn" onclick="showSection('geographie', this)">🌍 Plans Géographie</li>
         </ul>
@@ -228,87 +238,99 @@
     <div class="content">
         <div id="accueil" class="section active">
             <h1>Tableau de Bord des Révisions</h1>
-            <p>Accès direct à tes carnets de synthèse pour chaque partie du programme et aux outils d'entraînement oraux.</p>
+            <p>Navigue entre les outils d'entraînement et tes carnets de synthèse via les onglets ci-dessous.</p>
             
-            <h2>Entraînement Oral</h2>
-            <table>
-                <tr>
-                    <th>Épreuve</th>
-                    <th>Lien d'entraînement</th>
-                </tr>
-                <tr>
-                    <td><strong>ORAL 1 : Épreuve disciplinaire appliquée</strong><br>Assistant IA (Gemini) et mises en situation</td>
-                    <td><a href="https://gemini.google.com/share/5eb44bd20889" target="_blank" class="notebook-link">Ouvrir l'Assistant</a></td>
-                </tr>
-                <tr>
-                    <td><strong>ORAL 2 : Entretien professionnel</strong><br>Synthèse documentaire et posture de fonctionnaire</td>
-                    <td><a href="https://notebooklm.google.com/notebook/f1c79d7f-67e5-4688-ab43-45afd2fb187f" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
-                </tr>
-            </table>
+            <div class="sub-tabs">
+                <button class="sub-tab-btn active-sub" onclick="showSubTab('acc-oraux', this)">🗣️ Oraux</button>
+                <button class="sub-tab-btn" onclick="showSubTab('acc-histoire', this)">⏳ Histoire</button>
+                <button class="sub-tab-btn" onclick="showSubTab('acc-geographie', this)">🌍 Géographie</button>
+            </div>
 
-            <h2>Histoire</h2>
-            <table>
-                <tr>
-                    <th>Partie du Programme</th>
-                    <th>Lien NotebookLM</th>
-                </tr>
-                <tr>
-                    <td><strong>Partie 1 : L'Antiquité et le Haut Moyen Âge</strong><br>La Grèce classique, Rome (République et Empire)</td>
-                    <td><a href="https://notebooklm.google.com/notebook/6e74e7f3-5709-495a-9c40-68c22f861e8e" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
-                </tr>
-                <tr>
-                    <td><strong>Partie 2 : Le Moyen Âge</strong><br>Contacts en Méditerranée, Société et Église</td>
-                    <td><a href="https://notebooklm.google.com/notebook/e545d02f-ce77-4b01-aded-231c9391678e" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
-                </tr>
-                <tr>
-                    <td><strong>Partie 3 : Moderne</strong><br>Mondialisation, Renaissance, Révolution et Empire</td>
-                    <td><a href="https://notebooklm.google.com/notebook/91b2324d-1646-4025-bb26-887000262921" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
-                </tr>
-                <tr>
-                    <td><strong>Partie 4 : Le Monde Contemporain (XIXe)</strong><br>Économie, société et politique (1815-1914)</td>
-                    <td><a href="https://notebooklm.google.com/notebook/f06dd276-e8c2-45e8-b7fc-73be0dc83632" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
-                </tr>
-                <tr>
-                    <td><strong>Partie 4 : Le Monde Contemporain (XXe)</strong><br>Guerres, totalitarismes, guerre froide</td>
-                    <td><a href="https://notebooklm.google.com/notebook/62c0df18-5168-42c3-ade7-4754d50428f8" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
-                </tr>
-            </table>
+            <div id="acc-oraux" class="sub-tab-content active-sub-content">
+                <h2>Entraînement Oral</h2>
+                <table>
+                    <tr>
+                        <th>Épreuve</th>
+                        <th>Lien d'entraînement</th>
+                    </tr>
+                    <tr>
+                        <td><strong>ORAL 1 : Épreuve disciplinaire appliquée</strong><br>Assistant IA (Gemini) et mises en situation</td>
+                        <td><a href="https://gemini.google.com/share/5eb44bd20889" target="_blank" class="notebook-link">Ouvrir l'Assistant</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>ORAL 2 : Entretien professionnel</strong><br>Synthèse documentaire et posture de fonctionnaire</td>
+                        <td><a href="https://notebooklm.google.com/notebook/f1c79d7f-67e5-4688-ab43-45afd2fb187f" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
+                    </tr>
+                </table>
+            </div>
 
-            <h2>Géographie</h2>
-            <table>
-                <tr>
-                    <th>Partie du Programme</th>
-                    <th>Lien NotebookLM</th>
-                </tr>
-                <tr>
-                    <td><strong>Partie 1 :</strong><br>Géographie de la France et de l'UE</td>
-                    <td><a href="https://notebooklm.google.com/notebook/269761f4-0760-4868-a631-1bae5cd30ba1" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
-                </tr>
-                <tr>
-                    <td><strong>Partie 2 :</strong><br>Géographie de la population et Géographie urbaine</td>
-                    <td><a href="https://notebooklm.google.com/notebook/22625a0f-e691-45ec-ab12-956d569b8fd2" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
-                </tr>
-                <tr>
-                    <td><strong>Partie 2 (Urbaine - Complément) :</strong><br>Dynamiques et activités urbaines</td>
-                    <td><a href="https://notebooklm.google.com/notebook/f8df1964-3393-41ae-9821-5158f2510455" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
-                </tr>
-                <tr>
-                    <td><strong>Partie 3 :</strong><br>Géographie de la mondialisation</td>
-                    <td><a href="https://notebooklm.google.com/notebook/34f7bdf3-e4dc-4e2a-b8c1-46bc7966c60e" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
-                </tr>
-                <tr>
-                    <td><strong>Partie 3 (Géopolitique) :</strong><br>Frontières, conflits</td>
-                    <td><a href="https://notebooklm.google.com/notebook/af3a1ff4-c38a-42e2-9e27-62bf855b4fc7" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
-                </tr>
-                <tr>
-                    <td><strong>Partie 4 :</strong><br>Géographie rurale</td>
-                    <td><a href="https://notebooklm.google.com/notebook/ff1622d9-d36a-4479-914e-ce3b1a999438" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
-                </tr>
-                <tr>
-                    <td><strong>Partie 4 (Environnement) :</strong><br>Milieux, ressources, risques</td>
-                    <td><a href="https://notebooklm.google.com/notebook/f62b3875-251a-4944-9dcd-ac33d0e3adcd" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
-                </tr>
-            </table>
+            <div id="acc-histoire" class="sub-tab-content">
+                <h2>Histoire - Notebooks LM</h2>
+                <table>
+                    <tr>
+                        <th>Partie du Programme</th>
+                        <th>Lien NotebookLM</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Partie 1 : L'Antiquité et le Haut Moyen Âge</strong><br>La Grèce classique, Rome (République et Empire)</td>
+                        <td><a href="https://notebooklm.google.com/notebook/6e74e7f3-5709-495a-9c40-68c22f861e8e" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Partie 2 : Le Moyen Âge</strong><br>Contacts en Méditerranée, Société et Église</td>
+                        <td><a href="https://notebooklm.google.com/notebook/e545d02f-ce77-4b01-aded-231c9391678e" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Partie 3 : Moderne</strong><br>Mondialisation, Renaissance, Révolution et Empire</td>
+                        <td><a href="https://notebooklm.google.com/notebook/91b2324d-1646-4025-bb26-887000262921" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Partie 4 : Le Monde Contemporain (XIXe)</strong><br>Économie, société et politique (1815-1914)</td>
+                        <td><a href="https://notebooklm.google.com/notebook/f06dd276-e8c2-45e8-b7fc-73be0dc83632" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Partie 4 : Le Monde Contemporain (XXe)</strong><br>Guerres, totalitarismes, guerre froide</td>
+                        <td><a href="https://notebooklm.google.com/notebook/62c0df18-5168-42c3-ade7-4754d50428f8" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="acc-geographie" class="sub-tab-content">
+                <h2>Géographie - Notebooks LM</h2>
+                <table>
+                    <tr>
+                        <th>Partie du Programme</th>
+                        <th>Lien NotebookLM</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Partie 1 :</strong><br>Géographie de la France et de l'UE</td>
+                        <td><a href="https://notebooklm.google.com/notebook/269761f4-0760-4868-a631-1bae5cd30ba1" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Partie 2 :</strong><br>Géographie de la population et Géographie urbaine</td>
+                        <td><a href="https://notebooklm.google.com/notebook/22625a0f-e691-45ec-ab12-956d569b8fd2" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Partie 2 (Urbaine - Complément) :</strong><br>Dynamiques et activités urbaines</td>
+                        <td><a href="https://notebooklm.google.com/notebook/f8df1964-3393-41ae-9821-5158f2510455" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Partie 3 :</strong><br>Géographie de la mondialisation</td>
+                        <td><a href="https://notebooklm.google.com/notebook/34f7bdf3-e4dc-4e2a-b8c1-46bc7966c60e" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Partie 3 (Géopolitique) :</strong><br>Frontières, conflits</td>
+                        <td><a href="https://notebooklm.google.com/notebook/af3a1ff4-c38a-42e2-9e27-62bf855b4fc7" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Partie 4 :</strong><br>Géographie rurale</td>
+                        <td><a href="https://notebooklm.google.com/notebook/ff1622d9-d36a-4479-914e-ce3b1a999438" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Partie 4 (Environnement) :</strong><br>Milieux, ressources, risques</td>
+                        <td><a href="https://notebooklm.google.com/notebook/f62b3875-251a-4944-9dcd-ac33d0e3adcd" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
+                    </tr>
+                </table>
+            </div>
         </div>
 
         <div id="histoire" class="section">
@@ -325,7 +347,7 @@
                             <span><span class="timeline-legend-dot" style="background:#1D9E75"></span>Abbassides</span>
                             <span><span class="timeline-legend-dot" style="background:#D85A30"></span>Fatimides</span>
                             <span><span class="timeline-legend-dot" style="background:#BA7517"></span>Ayyoubides</span>
-                            <span><span class="timeline-legend-dot" style="background:#3b82f6"></span>Mamelouks</span>
+                            <span><span class="timeline-legend-dot" style="background:#3498db"></span>Mamelouks</span>
                         </div>
                         
                         <div class="timeline" id="tl"></div>
@@ -375,7 +397,7 @@
                     <li><strong>I. LA RÉPUBLIQUE ROMAINE: GESTATION D'UN MODÈLE ET CONQUÊTE DE L'HÉGÉMONIE (509 - 133 av. J.-C.)</strong>
                         <ul>
                             <li>A. Un système politique oligarchique et patricio-plébéien</li>
-                            <li>B. Le rouleau compresseur militaire et la conquête de l'Italie</li>
+                            <li>B. Le rouleau compresseur militaire et la Pyramide de conquête de l'Italie</li>
                             <li>C. L'impérialisme méditerranéen et ses conséquences</li>
                         </ul>
                     </li>
@@ -780,7 +802,7 @@
                             <li>C. L'évolution et les paradoxes de la protection environnementale</li>
                         </ul>
                     </li>
-                    <li><strong>III. GÉOPOLITIQUE ET JUSTICE ENVIRONNEMENTALE: LA LUTTE POUR L'APPROPRIATION GLOBE</strong>
+                    <li><strong>III. GÉOPOLITIQUE ET JUSTICE ENVIRONNEMENTALE: LA LUTTE POUR L'APPROPRIATION DU GLOBE</strong>
                         <ul>
                             <li>A. La course destructrice aux ressources de la mondialisation</li>
                             <li>B. La "malédiction des matières premières" et l'émergence des conflits</li>
@@ -794,10 +816,11 @@
     </div>
 
     <script>
-        // LOGIQUE DES ONGLETS
+        // NAVIGATION MENU PRINCIPAL
         function showSection(sectionId, element) {
             const sections = document.querySelectorAll('.section');
             sections.forEach(sec => sec.classList.remove('active'));
+            
             document.getElementById(sectionId).classList.add('active');
             
             const navBtns = document.querySelectorAll('.nav-btn');
@@ -805,6 +828,18 @@
             element.classList.add('active-menu');
             
             window.scrollTo(0, 0);
+        }
+
+        // NAVIGATION SOUS-ONGLETS (Page Accueil)
+        function showSubTab(tabId, element) {
+            const contents = document.querySelectorAll('.sub-tab-content');
+            contents.forEach(content => content.classList.remove('active-sub-content'));
+            
+            const btns = document.querySelectorAll('.sub-tab-btn');
+            btns.forEach(btn => btn.classList.remove('active-sub'));
+            
+            document.getElementById(tabId).classList.add('active-sub-content');
+            element.classList.add('active-sub');
         }
 
         // LOGIQUE DE LA FRISE CHRONOLOGIQUE
@@ -881,7 +916,7 @@
               },
               {
                 label: "Mamelouks",
-                color: "#3b82f6", textColor: "#ffffff",
+                color: "#3498db", textColor: "#ffffff",
                 start: 1250, end: 1517,
                 name: "Sultanat mamelouk",
                 dates: "1250 – 1517",
