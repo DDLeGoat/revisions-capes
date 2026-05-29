@@ -147,6 +147,28 @@
             list-style-type: circle;
         }
 
+        /* --- STYLES SPÉCIFIQUES POUR LA FRISE CHRONOLOGIQUE --- */
+        .timeline-container { overflow-x: auto; margin-top: 15px; }
+        .timeline-wrap { min-width: 650px; padding: 10px 0; }
+        .timeline-legend { display: flex; flex-wrap: wrap; gap: 10px 18px; margin-bottom: 1.2rem; font-size: 13px; color: var(--text-color); font-weight: bold; }
+        .timeline-legend span { display: flex; align-items: center; gap: 6px; }
+        .timeline-legend-dot { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
+        .timeline { position: relative; width: 100%; }
+        .axis-labels { display: flex; justify-content: space-between; font-size: 12px; color: #7f8c8d; padding: 0 2px; margin-bottom: 4px; font-weight: bold; }
+        .axis-bar { width: 100%; height: 4px; background: #bdc3c7; border-radius: 2px; margin-bottom: 14px; position: relative; }
+        .dynasty-row { display: flex; align-items: center; gap: 0; margin-bottom: 8px; min-height: 32px; }
+        .dyn-label { width: 140px; flex-shrink: 0; font-size: 13px; color: var(--text-color); text-align: right; padding-right: 12px; line-height: 1.3; font-weight: bold; }
+        .dyn-track { flex: 1; position: relative; height: 30px; background: #ecf0f1; border-radius: 4px; }
+        .dyn-bar { position: absolute; height: 26px; border-radius: 4px; top: 2px; cursor: pointer; transition: filter .15s, transform 0.2s; display: flex; align-items: center; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .dyn-bar:hover { filter: brightness(1.12); transform: scaleY(1.1); z-index: 10; }
+        .dyn-bar span { font-size: 12px; font-weight: bold; padding: 0 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; pointer-events: none; text-shadow: 0 1px 2px rgba(0,0,0,0.3); }
+        .timeline-panel { margin-top: 1.5rem; background: #f9f9f9; border-radius: 8px; border: 1px solid #bdc3c7; padding: 1.5rem; min-height: 120px; }
+        .timeline-panel h3 { font-size: 18px; font-weight: bold; margin: 0 0 8px 0; color: var(--primary); border: none; padding: 0; }
+        .timeline-panel .meta { font-size: 13px; color: #7f8c8d; margin-bottom: 15px; font-weight: bold; }
+        .timeline-panel p { font-size: 14px; line-height: 1.7; color: var(--text-color); margin-bottom: 12px; }
+        .timeline-panel .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+        .timeline-panel .tag { font-size: 12px; padding: 4px 12px; border-radius: 20px; border: 1px solid #bdc3c7; background: white; color: var(--primary); font-weight: bold; }
+
         /* 📱 RESPONSIVE DESIGN (Mobiles & Tablettes) 📱 */
         @media screen and (max-width: 768px) {
             body {
@@ -183,12 +205,11 @@
             h1 {
                 font-size: 1.5em;
             }
-            /* Assouplissement du tableau sur mobile pour la lisibilité */
             table {
                 white-space: normal; 
             }
             td, th {
-                min-width: 120px; /* Assure que les colonnes ne sont pas trop écrasées */
+                min-width: 120px; 
             }
         }
     </style>
@@ -292,6 +313,32 @@
 
         <div id="histoire" class="section">
             <h1>Plans Magiques - Histoire</h1>
+
+            <div class="plan-card">
+                <h3>⏱️ Frise Chronologique : Les Dynasties Arabo-Musulmanes</h3>
+                <p>Outil interactif pour visualiser les rapports de force en Méditerranée (VIIe - XVIe siècles) et mieux appréhender les contacts et conflits de la question au programme. <em>Clique sur les barres pour afficher les fiches de révision détaillées.</em></p>
+                
+                <div class="timeline-container">
+                    <div class="timeline-wrap">
+                        <div class="timeline-legend">
+                            <span><span class="timeline-legend-dot" style="background:#7F77DD"></span>Rachidoun / Omeyyades</span>
+                            <span><span class="timeline-legend-dot" style="background:#1D9E75"></span>Abbassides</span>
+                            <span><span class="timeline-legend-dot" style="background:#D85A30"></span>Fatimides</span>
+                            <span><span class="timeline-legend-dot" style="background:#BA7517"></span>Ayyoubides</span>
+                            <span><span class="timeline-legend-dot" style="background:#3b82f6"></span>Mamelouks</span>
+                        </div>
+                        
+                        <div class="timeline" id="tl"></div>
+                        
+                        <div class="timeline-panel" id="panel">
+                            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; color: #7f8c8d;">
+                                <span style="font-size: 2em; margin-bottom: 10px;">👆</span>
+                                <span>Sélectionne une dynastie sur la frise pour afficher sa fiche de révision</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             
             <div class="plan-card">
                 <h3>🏛️ La Grèce Classique</h3>
@@ -733,7 +780,7 @@
                             <li>C. L'évolution et les paradoxes de la protection environnementale</li>
                         </ul>
                     </li>
-                    <li><strong>III. GÉOPOLITIQUE ET JUSTICE ENVIRONNEMENTALE: LA LUTTE POUR L'APPROPRIATION DU GLOBE</strong>
+                    <li><strong>III. GÉOPOLITIQUE ET JUSTICE ENVIRONNEMENTALE: LA LUTTE POUR L'APPROPRIATION GLOBE</strong>
                         <ul>
                             <li>A. La course destructrice aux ressources de la mondialisation</li>
                             <li>B. La "malédiction des matières premières" et l'émergence des conflits</li>
@@ -747,22 +794,180 @@
     </div>
 
     <script>
+        // LOGIQUE DES ONGLETS
         function showSection(sectionId, element) {
-            // Cacher toutes les sections
             const sections = document.querySelectorAll('.section');
             sections.forEach(sec => sec.classList.remove('active'));
-            
-            // Afficher la section demandée
             document.getElementById(sectionId).classList.add('active');
             
-            // Mettre à jour l'état actif dans le menu
             const navBtns = document.querySelectorAll('.nav-btn');
             navBtns.forEach(btn => btn.classList.remove('active-menu'));
             element.classList.add('active-menu');
             
-            // Remonter en haut de la page lors du changement d'onglet
             window.scrollTo(0, 0);
         }
+
+        // LOGIQUE DE LA FRISE CHRONOLOGIQUE
+        document.addEventListener('DOMContentLoaded', () => {
+            const START = 620, END = 1520;
+            const RANGE = END - START;
+
+            const dynasties = [
+              {
+                label: "Rachidoun",
+                color: "#7F77DD", textColor: "#ffffff",
+                start: 632, end: 661,
+                name: "Califes bien guidés (Rachidoun)",
+                dates: "632 – 661",
+                capital: "Médine puis Koufa",
+                fondateur: "Abu Bakr",
+                resume: "Les quatre premiers califes (Abu Bakr, Omar, Othman, Ali) dirigent la communauté musulmane après la mort du Prophète. Période de grandes conquêtes : Syrie, Égypte, Mésopotamie, Perse occidentale sont intégrées au dar al-islam. Le califat est collégial et repose sur le consensus (shura). La mort d'Othman (656) et la guerre civile (fitna) débouchent sur l'assassinat d'Ali et l'avènement des Omeyyades.",
+                tags: ["Conquêtes fulgurantes", "Fitna (656)", "Shura", "Expansion arabisante"]
+              },
+              {
+                label: "Omeyyades\n(Orient)",
+                color: "#534AB7", textColor: "#ffffff",
+                start: 661, end: 750,
+                name: "Califat omeyyade (Damas)",
+                dates: "661 – 750",
+                capital: "Damas",
+                fondateur: "Muʿāwiya ibn Abī Sufyān",
+                resume: "Première grande dynastie héréditaire de l'islam. Depuis Damas, les Omeyyades poursuivent les conquêtes : Afrique du Nord, péninsule Ibérique (711), Transoxiane. L'administration s'appuie sur les structures byzantines et sassanides. Le caractère arabo-tribal du pouvoir marginalise les nouveaux convertis non arabes (mawālī), creusant le mécontentement qui alimentera la révolution abbasside. La bataille de Poitiers (732) stoppe l'expansion vers l'ouest.",
+                tags: ["Arabisation", "Conquête de l'Espagne 711", "Administration byzantinisée", "Bataille de Poitiers 732"]
+              },
+              {
+                label: "Omeyyades\n(Cordoue)",
+                color: "#AFA9EC", textColor: "#1e293b",
+                start: 756, end: 1031,
+                name: "Émirat puis califat de Cordoue",
+                dates: "756 – 1031",
+                capital: "Cordoue",
+                fondateur: "Abd al-Rahman Ier",
+                resume: "Après la chute des Omeyyades en Orient, Abd al-Rahman Ier, seul rescapé, fonde un émirat indépendant en al-Andalus. Son arrière-petit-fils Abd al-Rahman III prend le titre de calife en 929, rivalisant avec les Abbassides et les Fatimides. Cordoue devient un des plus grands foyers intellectuels du monde médiéval (Averroès, Maïmonide naîtront dans cette culture). Le califat s'effondre lors des guerres civiles (fitna) des années 1000–1031 et se morcelle en royaumes de taïfas.",
+                tags: ["Al-Andalus", "Califat 929", "Cordoue capitale culturelle", "Reconquista naissante", "Taïfas après 1031"]
+              },
+              {
+                label: "Abbassides",
+                color: "#1D9E75", textColor: "#ffffff",
+                start: 750, end: 1258,
+                name: "Califat abbasside (Bagdad)",
+                dates: "750 – 1258",
+                capital: "Bagdad (fondée 762)",
+                fondateur: "Abu al-Abbas al-Saffah",
+                resume: "La révolution abbasside renverse les Omeyyades en s'appuyant sur les mawālī d'Iran et d'Irak. Le pouvoir se déplace à Bagdad, fondée en 762 sur un plan circulaire. Le VIIIe–IXe siècle correspond à l'âge d'or islamique : Maison de la Sagesse (Bayt al-Hikma), traductions du grec, al-Khwarizmi, al-Farabi, Ibn Sina. À partir du Xe siècle, les califes perdent le pouvoir réel au profit des émirs bouyides puis seldjoukides. La prise de Bagdad par les Mongols d'Hülagü (1258) met fin au califat.",
+                tags: ["Âge d'or", "Bagdad 762", "Maison de la Sagesse", "Fragmentation décentralisée", "1258 : prise par les Mongols"]
+              },
+              {
+                label: "Fatimides",
+                color: "#D85A30", textColor: "#ffffff",
+                start: 909, end: 1171,
+                name: "Califat fatimide (Caire)",
+                dates: "909 – 1171",
+                capital: "Mahdiyya, puis Le Caire (fondé 969)",
+                fondateur: "Abdallah al-Mahdi",
+                resume: "Dynastie chiite ismaélienne qui revendique la descendance de Fatima (fille du Prophète) et d'Ali. Après avoir pris l'Ifriqiya et l'Égypte, les Fatimides fondent Le Caire en 969 et l'université-mosquée al-Azhar. À leur apogée, ils contrôlent l'Égypte, la Syrie méridionale, le Hedjaz. Rivaux idéologiques des Abbassides, ils soutiennent les réseaux ismaéliens à travers tout le monde musulman. Saladin, vizir fatimide, abolit la dynastie et rétablit l'allégeance au califat abbasside en 1171.",
+                tags: ["Chiisme ismaélien", "Fondation du Caire 969", "Al-Azhar", "Antagonisme abbasside", "Fin par Saladin 1171"]
+              },
+              {
+                label: "Ayyoubides",
+                color: "#BA7517", textColor: "#ffffff",
+                start: 1171, end: 1260,
+                name: "Sultanat ayyoubide",
+                dates: "1171 – 1260",
+                capital: "Le Caire",
+                fondateur: "Saladin (Salah al-Din)",
+                resume: "Saladin (kurde de naissance mais arabe de culture) fonde la dynastie en 1171, réunifiant Égypte, Syrie et Hedjaz sous une bannière sunnite. Sa victoire à Hattin (1187) et la reprise de Jérusalem sont des événements majeurs des croisades. Les Ayyoubides favorisent l'essor du madrasas et du sunnisme. La structure décentralisée de la famille ayyoubide affaiblit le sultanat, qui laisse de facto le pouvoir militaire aux mamelouks (soldats-esclaves turcs), lesquels finissent par prendre le pouvoir.",
+                tags: ["Saladin", "Bataille de Hattin 1187", "Reprise de Jérusalem", "Sunnisme / Madrasa", "Transition vers les Mamelouks"]
+              },
+              {
+                label: "Mamelouks",
+                color: "#3b82f6", textColor: "#ffffff",
+                start: 1250, end: 1517,
+                name: "Sultanat mamelouk",
+                dates: "1250 – 1517",
+                capital: "Le Caire",
+                fondateur: "Aybak (1250)",
+                resume: "Les Mamelouks sont des soldats-esclaves (principalement turcs et circassiens) affranchis et formés comme élite guerrière. Ils arrêtent les Mongols à Ayn Jalut (1260), événement capital. Ils maintiennent un califat abbasside honorifique au Caire après 1261. Grands bâtisseurs (architecture mamelouke du Caire), ils contrôlent le commerce des épices entre Orient et Europe via la mer Rouge. La conquête ottomane (1517) met fin à leur sultanat.",
+                tags: ["Ayn Jalut 1260", "Fin des croisades 1291", "Califat honorifique", "Commerce des épices", "Conquête ottomane 1517"]
+              }
+            ];
+
+            function pct(year) { return ((year - START) / RANGE * 100).toFixed(3) + '%'; }
+
+            const tl = document.getElementById('tl');
+            if(!tl) return;
+
+            const axisDates = [632, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500];
+            const axisLabels = document.createElement('div');
+            axisLabels.className = 'axis-labels';
+            axisDates.forEach(d => {
+              const s = document.createElement('span');
+              s.textContent = d;
+              s.style.position = 'absolute';
+              s.style.left = pct(d);
+              axisLabels.appendChild(s);
+            });
+            axisLabels.style.position = 'relative';
+            tl.appendChild(axisLabels);
+
+            const axisBar = document.createElement('div');
+            axisBar.className = 'axis-bar';
+            axisDates.forEach(d => {
+              const tick = document.createElement('div');
+              tick.style.cssText = `position:absolute;left:${pct(d)};top:-4px;width:2px;height:12px;background:#bdc3c7`;
+              axisBar.appendChild(tick);
+            });
+            tl.appendChild(axisBar);
+
+            dynasties.forEach((d, i) => {
+              const row = document.createElement('div');
+              row.className = 'dynasty-row';
+
+              const lbl = document.createElement('div');
+              lbl.className = 'dyn-label';
+              lbl.style.whiteSpace = 'pre-line';
+              lbl.textContent = d.label;
+              row.appendChild(lbl);
+
+              const track = document.createElement('div');
+              track.className = 'dyn-track';
+
+              const left = ((d.start - START) / RANGE * 100);
+              const width = ((d.end - d.start) / RANGE * 100);
+
+              const bar = document.createElement('div');
+              bar.className = 'dyn-bar';
+              bar.style.left = left + '%';
+              bar.style.width = width + '%';
+              bar.style.background = d.color;
+              bar.setAttribute('role', 'button');
+              bar.setAttribute('tabindex', '0');
+
+              const txt = document.createElement('span');
+              txt.style.color = d.textColor;
+              txt.textContent = d.dates;
+              bar.appendChild(txt);
+
+              bar.addEventListener('click', () => {
+                  const panel = document.getElementById('panel');
+                  panel.innerHTML = `
+                    <h3>${d.name}</h3>
+                    <div class="meta">${d.dates} &nbsp;·&nbsp; Capitale : ${d.capital} &nbsp;·&nbsp; Fondateur : ${d.fondateur}</div>
+                    <p>${d.resume}</p>
+                    <div class="tags">${d.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+                  `;
+                  panel.style.opacity = 0;
+                  setTimeout(() => {
+                      panel.style.transition = 'opacity 0.3s';
+                      panel.style.opacity = 1;
+                  }, 10);
+              });
+              
+              track.appendChild(bar);
+              row.appendChild(track);
+              tl.appendChild(row);
+            });
+        });
     </script>
 </body>
 </html>
