@@ -68,12 +68,11 @@
             margin-top: 0;
         }
         
-        /* SOUS-ONGLETS (Accueil) */
+        /* SOUS-ONGLETS (Plans Magiques) */
         .sub-tabs {
             display: flex;
-            gap: 10px;
-            margin-top: 20px;
-            margin-bottom: 20px;
+            gap: 8px;
+            margin-bottom: 25px;
             border-bottom: 2px solid #ecf0f1;
             padding-bottom: 10px;
             flex-wrap: wrap;
@@ -81,13 +80,13 @@
         .sub-tab-btn {
             background-color: white;
             border: 2px solid #ecf0f1;
-            padding: 10px 20px;
-            font-size: 1em;
+            padding: 8px 14px;
+            font-size: 0.95em;
             font-weight: bold;
             color: var(--primary);
             cursor: pointer;
             border-radius: 6px;
-            transition: 0.3s;
+            transition: 0.2s;
         }
         .sub-tab-btn:hover {
             border-color: var(--secondary);
@@ -110,11 +109,12 @@
         table {
             width: 100%;
             border-collapse: collapse;
+            margin-top: 15px;
             margin-bottom: 40px;
             background: white;
             box-shadow: 0 4px 8px rgba(0,0,0,0.05);
             border-radius: 8px;
-            display: block; /* Permet le scroll sur mobile */
+            display: block; 
             overflow-x: auto;
             white-space: nowrap;
         }
@@ -145,7 +145,8 @@
             background-color: var(--secondary);
             color: white;
         }
-        /* Sections Dynamiques (Menu Principal) */
+
+        /* Sections Dynamiques */
         .section {
             display: none;
             animation: fadeIn 0.5s;
@@ -157,6 +158,7 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
         /* Cartes pour les Plans Magiques */
         .plan-card {
             background: white;
@@ -169,6 +171,7 @@
         .plan-card h3 {
             color: var(--primary);
             margin-top: 0;
+            font-size: 1.3em;
         }
         .plan-card p {
             line-height: 1.6;
@@ -186,7 +189,7 @@
             list-style-type: circle;
         }
 
-        /* --- STYLES SPÉCIFIQUES POUR LA FRISE CHRONOLOGIQUE --- */
+        /* --- STYLES FRISE CHRONOLOGIQUE --- */
         .timeline-container { overflow-x: auto; margin-top: 15px; }
         .timeline-wrap { min-width: 650px; padding: 10px 0; }
         .timeline-legend { display: flex; flex-wrap: wrap; gap: 10px 18px; margin-bottom: 1.2rem; font-size: 13px; color: var(--text-color); font-weight: bold; }
@@ -218,7 +221,7 @@
             .content { margin-left: 0; width: 100%; padding: 20px; }
             h1 { font-size: 1.5em; }
             .sub-tabs { justify-content: center; }
-            .sub-tab-btn { flex: 1 1 auto; text-align: center; padding: 8px 10px; font-size: 0.9em; }
+            .sub-tab-btn { flex: 1 1 auto; text-align: center; font-size: 0.85em; padding: 8px; }
             table { white-space: normal; }
             td, th { min-width: 120px; }
         }
@@ -229,587 +232,628 @@
     <div class="sidebar">
         <h2>📚 CAPES MEEF</h2>
         <ul>
-            <li class="nav-btn active-menu" onclick="showSection('accueil', this)">🏠 Accueil & Liens</li>
+            <li class="nav-btn active-menu" onclick="showSection('accueil', this)">🏠 Accueil & Oraux</li>
             <li class="nav-btn" onclick="showSection('histoire', this)">⏳ Plans Histoire</li>
             <li class="nav-btn" onclick="showSection('geographie', this)">🌍 Plans Géographie</li>
         </ul>
     </div>
 
     <div class="content">
+        
         <div id="accueil" class="section active">
             <h1>Tableau de Bord des Révisions</h1>
-            <p>Navigue entre les outils d'entraînement et tes carnets de synthèse via les onglets ci-dessous.</p>
+            <p>Accès direct à tes carnets de synthèse pour chaque partie du programme et aux outils d'entraînement oraux.</p>
             
-            <div class="sub-tabs">
-                <button class="sub-tab-btn active-sub" onclick="showSubTab('acc-oraux', this)">🗣️ Oraux</button>
-                <button class="sub-tab-btn" onclick="showSubTab('acc-histoire', this)">⏳ Histoire</button>
-                <button class="sub-tab-btn" onclick="showSubTab('acc-geographie', this)">🌍 Géographie</button>
-            </div>
+            <h2>🗣️ Entraînement Oral</h2>
+            <table>
+                <tr>
+                    <th>Épreuve</th>
+                    <th>Lien d'entraînement</th>
+                </tr>
+                <tr>
+                    <td><strong>ORAL 1 : Épreuve disciplinaire appliquée</strong><br>Assistant IA (Gemini) et mises en situation</td>
+                    <td><a href="https://gemini.google.com/share/5eb44bd20889" target="_blank" class="notebook-link">Ouvrir l'Assistant</a></td>
+                </tr>
+                <tr>
+                    <td><strong>ORAL 2 : Entretien professionnel</strong><br>Synthèse documentaire et posture de fonctionnaire</td>
+                    <td><a href="https://notebooklm.google.com/notebook/f1c79d7f-67e5-4688-ab43-45afd2fb187f" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
+                </tr>
+            </table>
 
-            <div id="acc-oraux" class="sub-tab-content active-sub-content">
-                <h2>Entraînement Oral</h2>
-                <table>
-                    <tr>
-                        <th>Épreuve</th>
-                        <th>Lien d'entraînement</th>
-                    </tr>
-                    <tr>
-                        <td><strong>ORAL 1 : Épreuve disciplinaire appliquée</strong><br>Assistant IA (Gemini) et mises en situation</td>
-                        <td><a href="https://gemini.google.com/share/5eb44bd20889" target="_blank" class="notebook-link">Ouvrir l'Assistant</a></td>
-                    </tr>
-                    <tr>
-                        <td><strong>ORAL 2 : Entretien professionnel</strong><br>Synthèse documentaire et posture de fonctionnaire</td>
-                        <td><a href="https://notebooklm.google.com/notebook/f1c79d7f-67e5-4688-ab43-45afd2fb187f" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
-                    </tr>
-                </table>
-            </div>
+            <h2>⏳ Histoire - Notebooks LM</h2>
+            <table>
+                <tr>
+                    <th>Partie du Programme</th>
+                    <th>Lien NotebookLM</th>
+                </tr>
+                <tr>
+                    <td><strong>Partie 1 : L'Antiquité et le Haut Moyen Âge</strong><br>La Grèce classique, Rome (République et Empire)</td>
+                    <td><a href="https://notebooklm.google.com/notebook/6e74e7f3-5709-495a-9c40-68c22f861e8e" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
+                </tr>
+                <tr>
+                    <td><strong>Partie 2 : Le Moyen Âge</strong><br>Contacts en Méditerranée, Société et Église</td>
+                    <td><a href="https://notebooklm.google.com/notebook/e545d02f-ce77-4b01-aded-231c9391678e" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
+                </tr>
+                <tr>
+                    <td><strong>Partie 3 : Moderne</strong><br>Mondialisation, Renaissance, Révolution et Empire</td>
+                    <td><a href="https://notebooklm.google.com/notebook/91b2324d-1646-4025-bb26-887000262921" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
+                </tr>
+                <tr>
+                    <td><strong>Partie 4 : Le Monde Contemporain (XIXe)</strong><br>Économie, société et politique (1815-1914)</td>
+                    <td><a href="https://notebooklm.google.com/notebook/f06dd276-e8c2-45e8-b7fc-73be0dc83632" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
+                </tr>
+                <tr>
+                    <td><strong>Partie 4 : Le Monde Contemporain (XXe)</strong><br>Guerres, totalitarismes, guerre froide</td>
+                    <td><a href="https://notebooklm.google.com/notebook/62c0df18-5168-42c3-ade7-4754d50428f8" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
+                </tr>
+            </table>
 
-            <div id="acc-histoire" class="sub-tab-content">
-                <h2>Histoire - Notebooks LM</h2>
-                <table>
-                    <tr>
-                        <th>Partie du Programme</th>
-                        <th>Lien NotebookLM</th>
-                    </tr>
-                    <tr>
-                        <td><strong>Partie 1 : L'Antiquité et le Haut Moyen Âge</strong><br>La Grèce classique, Rome (République et Empire)</td>
-                        <td><a href="https://notebooklm.google.com/notebook/6e74e7f3-5709-495a-9c40-68c22f861e8e" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Partie 2 : Le Moyen Âge</strong><br>Contacts en Méditerranée, Société et Église</td>
-                        <td><a href="https://notebooklm.google.com/notebook/e545d02f-ce77-4b01-aded-231c9391678e" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Partie 3 : Moderne</strong><br>Mondialisation, Renaissance, Révolution et Empire</td>
-                        <td><a href="https://notebooklm.google.com/notebook/91b2324d-1646-4025-bb26-887000262921" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Partie 4 : Le Monde Contemporain (XIXe)</strong><br>Économie, société et politique (1815-1914)</td>
-                        <td><a href="https://notebooklm.google.com/notebook/f06dd276-e8c2-45e8-b7fc-73be0dc83632" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Partie 4 : Le Monde Contemporain (XXe)</strong><br>Guerres, totalitarismes, guerre froide</td>
-                        <td><a href="https://notebooklm.google.com/notebook/62c0df18-5168-42c3-ade7-4754d50428f8" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
-                    </tr>
-                </table>
-            </div>
-
-            <div id="acc-geographie" class="sub-tab-content">
-                <h2>Géographie - Notebooks LM</h2>
-                <table>
-                    <tr>
-                        <th>Partie du Programme</th>
-                        <th>Lien NotebookLM</th>
-                    </tr>
-                    <tr>
-                        <td><strong>Partie 1 :</strong><br>Géographie de la France et de l'UE</td>
-                        <td><a href="https://notebooklm.google.com/notebook/269761f4-0760-4868-a631-1bae5cd30ba1" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Partie 2 :</strong><br>Géographie de la population et Géographie urbaine</td>
-                        <td><a href="https://notebooklm.google.com/notebook/22625a0f-e691-45ec-ab12-956d569b8fd2" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Partie 2 (Urbaine - Complément) :</strong><br>Dynamiques et activités urbaines</td>
-                        <td><a href="https://notebooklm.google.com/notebook/f8df1964-3393-41ae-9821-5158f2510455" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Partie 3 :</strong><br>Géographie de la mondialisation</td>
-                        <td><a href="https://notebooklm.google.com/notebook/34f7bdf3-e4dc-4e2a-b8c1-46bc7966c60e" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Partie 3 (Géopolitique) :</strong><br>Frontières, conflits</td>
-                        <td><a href="https://notebooklm.google.com/notebook/af3a1ff4-c38a-42e2-9e27-62bf855b4fc7" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Partie 4 :</strong><br>Géographie rurale</td>
-                        <td><a href="https://notebooklm.google.com/notebook/ff1622d9-d36a-4479-914e-ce3b1a999438" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Partie 4 (Environnement) :</strong><br>Milieux, ressources, risques</td>
-                        <td><a href="https://notebooklm.google.com/notebook/f62b3875-251a-4944-9dcd-ac33d0e3adcd" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
-                    </tr>
-                </table>
-            </div>
+            <h2>🌍 Géographie - Notebooks LM</h2>
+            <table>
+                <tr>
+                    <th>Partie du Programme</th>
+                    <th>Lien NotebookLM</th>
+                </tr>
+                <tr>
+                    <td><strong>Partie 1 :</strong><br>Géographie de la France et de l'UE</td>
+                    <td><a href="https://notebooklm.google.com/notebook/269761f4-0760-4868-a631-1bae5cd30ba1" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
+                </tr>
+                <tr>
+                    <td><strong>Partie 2 :</strong><br>Géographie de la population et Géographie urbaine</td>
+                    <td><a href="https://notebooklm.google.com/notebook/22625a0f-e691-45ec-ab12-956d569b8fd2" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
+                </tr>
+                <tr>
+                    <td><strong>Partie 2 (Urbaine - Complément) :</strong><br>Dynamiques et activités urbaines</td>
+                    <td><a href="https://notebooklm.google.com/notebook/f8df1964-3393-41ae-9821-5158f2510455" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
+                </tr>
+                <tr>
+                    <td><strong>Partie 3 :</strong><br>Géographie de la mondialisation</td>
+                    <td><a href="https://notebooklm.google.com/notebook/34f7bdf3-e4dc-4e2a-b8c1-46bc7966c60e" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
+                </tr>
+                <tr>
+                    <td><strong>Partie 3 (Géopolitique) :</strong><br>Frontières, conflits</td>
+                    <td><a href="https://notebooklm.google.com/notebook/af3a1ff4-c38a-42e2-9e27-62bf855b4fc7" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
+                </tr>
+                <tr>
+                    <td><strong>Partie 4 :</strong><br>Géographie rurale</td>
+                    <td><a href="https://notebooklm.google.com/notebook/ff1622d9-d36a-4479-914e-ce3b1a999438" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
+                </tr>
+                <tr>
+                    <td><strong>Partie 4 (Environnement) :</strong><br>Milieux, ressources, risques</td>
+                    <td><a href="https://notebooklm.google.com/notebook/f62b3875-251a-4944-9dcd-ac33d0e3adcd" target="_blank" class="notebook-link">Ouvrir le Notebook</a></td>
+                </tr>
+            </table>
         </div>
 
         <div id="histoire" class="section">
             <h1>Plans Magiques - Histoire</h1>
+            
+            <div class="sub-tabs">
+                <button class="sub-tab-btn active-sub" onclick="showSubTab('h-grece', this)">🏛️ Grèce Classique</button>
+                <button class="sub-tab-btn" onclick="showSubTab('h-rome', this)">🦅 Rome</button>
+                <button class="sub-tab-btn" onclick="showSubTab('h-medit', this)">⚔️ Méditerranée</button>
+                <button class="sub-tab-btn" onclick="showSubTab('h-eglise', this)">⛪ Église & Société</button>
+                <button class="sub-tab-btn" onclick="showSubTab('h-renais', this)">🌍 Renaissance</button>
+                <button class="sub-tab-btn" onclick="showSubTab('h-revol', this)">🇫🇷 Révolution</button>
+                <button class="sub-tab-btn" onclick="showSubTab('h-19e', this)">🏭 XIXe Siècle</button>
+                <button class="sub-tab-btn" onclick="showSubTab('h-20e', this)">💣 XXe Siècle</button>
+            </div>
 
-            <div class="plan-card">
-                <h3>⏱️ Frise Chronologique : Les Dynasties Arabo-Musulmanes</h3>
-                <p>Outil interactif pour visualiser les rapports de force en Méditerranée (VIIe - XVIe siècles) et mieux appréhender les contacts et conflits de la question au programme. <em>Clique sur les barres pour afficher les fiches de révision détaillées.</em></p>
-                
-                <div class="timeline-container">
-                    <div class="timeline-wrap">
-                        <div class="timeline-legend">
-                            <span><span class="timeline-legend-dot" style="background:#7F77DD"></span>Rachidoun / Omeyyades</span>
-                            <span><span class="timeline-legend-dot" style="background:#1D9E75"></span>Abbassides</span>
-                            <span><span class="timeline-legend-dot" style="background:#D85A30"></span>Fatimides</span>
-                            <span><span class="timeline-legend-dot" style="background:#BA7517"></span>Ayyoubides</span>
-                            <span><span class="timeline-legend-dot" style="background:#3498db"></span>Mamelouks</span>
-                        </div>
-                        
-                        <div class="timeline" id="tl"></div>
-                        
-                        <div class="timeline-panel" id="panel">
-                            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; color: #7f8c8d;">
-                                <span style="font-size: 2em; margin-bottom: 10px;">👆</span>
-                                <span>Sélectionne une dynastie sur la frise pour afficher sa fiche de révision</span>
+            <div id="h-grece" class="sub-tab-content active-sub-content">
+                <div class="plan-card">
+                    <h3>🏛️ La Grèce Classique</h3>
+                    <p><strong>Problématique :</strong> Comment le monde grec à l'époque classique, tiraillé entre un profond sentiment d'unité culturelle (hellénicité) et de perpétuelles rivalités politiques entre cités-États, forge-t-il des modèles politiques hégémoniques inédits avant de succomber à ses propres divisions et d'être absorbé par l'Empire macédonien ?</p>
+                    <ul>
+                        <li><strong>I. L'UNITÉ DANS LA FRAGMENTATION: FONDEMENTS CULTURELS ET MODÈLES CIVIQUES</strong>
+                            <ul>
+                                <li>A. L'hellénicité: identité, religion et rassemblements</li>
+                                <li>B. L'expérience démocratique athénienne: l'isonomie en action</li>
+                                <li>C. Les limites et les exclusions du modèle civique</li>
+                            </ul>
+                        </li>
+                        <li><strong>II. LE VE SIÈCLE: GUERRES, HÉGÉMONIE ET DÉCHIREMENT DU MONDE GREC</strong>
+                            <ul>
+                                <li>A. Les guerres médiques: le face-à-face avec les Perses</li>
+                                <li>B. La thalassocratie athénienne: de l'alliance à l'Empire</li>
+                                <li>C. La guerre du Péloponnèse: le suicide politique des cités</li>
+                            </ul>
+                        </li>
+                        <li><strong>III. LE IVE SIÈCLE: DE L'INSTABILITÉ DES CITÉS À L'EMPIRE UNIVERSEL</strong>
+                            <ul>
+                                <li>A. Les luttes incessantes et l'hégémonie introuvable</li>
+                                <li>B. L'essor de la Macédoine et la perte de liberté des Grecs</li>
+                                <li>C. Alexandre le Grand: la dilatation du monde grec</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="h-rome" class="sub-tab-content">
+                <div class="plan-card">
+                    <h3>🦅 Rome (République et Empire)</h3>
+                    <p><strong>Problématique :</strong> Comment Rome est-elle parvenue à bâtir et maintenir un empire territorial universel, en adaptant continuellement ses structures politiques, passant d'une République oligarchique minée par l'ampleur de ses propres conquêtes, à un système impérial (le Principat) fondé sur l'intégration des vaincus et la redéfinition permanente de sa « romanité » ?</p>
+                    <ul>
+                        <li><strong>I. LA RÉPUBLIQUE ROMAINE: GESTATION D'UN MODÈLE ET CONQUÊTE DE L'HÉGÉMONIE (509 - 133 av. J.-C.)</strong>
+                            <ul>
+                                <li>A. Un système politique oligarchique et patricio-plébéien</li>
+                                <li>B. Le rouleau compresseur militaire et la conquête de l'Italie</li>
+                                <li>C. L'impérialisme méditerranéen et ses conséquences</li>
+                            </ul>
+                        </li>
+                        <li><strong>II. LE CRÉPUSCULE DE LA RÉPUBLIQUE ET L'INVENTION DU PRINCIPAT (133 av. J.-C. - 14 apr. J.-C.)</strong>
+                            <ul>
+                                <li>A. La crise systémique: blocages sociaux et violence politique</li>
+                                <li>B. Le temps des imperatores: la marche vers le pouvoir personnel</li>
+                                <li>C. Le compromis d'Auguste un régime monarchique masqué</li>
+                            </ul>
+                        </li>
+                        <li><strong>III. L'EMPIRE: APOGÉE, INTÉGRATION ET MUTATIONS DE L'ANTIQUITÉ TARDIVE (Ier - Ve siècle)</strong>
+                            <ul>
+                                <li>A. La Pax Romana et la romanisation des provinces</li>
+                                <li>B. La "crise du IIIe siècle" et le redressement impérial</li>
+                                <li>C. Christianisation et fragmentation de l'Occident</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="h-medit" class="sub-tab-content">
+                <div class="plan-card">
+                    <h3>⏱️ Frise Chronologique : Les Dynasties Arabo-Musulmanes</h3>
+                    <p>Outil interactif pour visualiser les rapports de force en Méditerranée (VIIe - XVIe siècles). <em>Clique sur les barres pour afficher les détails.</em></p>
+                    <div class="timeline-container">
+                        <div class="timeline-wrap">
+                            <div class="timeline-legend">
+                                <span><span class="timeline-legend-dot" style="background:#7F77DD"></span>Rachidoun / Omeyyades</span>
+                                <span><span class="timeline-legend-dot" style="background:#1D9E75"></span>Abbassides</span>
+                                <span><span class="timeline-legend-dot" style="background:#D85A30"></span>Fatimides</span>
+                                <span><span class="timeline-legend-dot" style="background:#BA7517"></span>Ayyoubides</span>
+                                <span><span class="timeline-legend-dot" style="background:#3498db"></span>Mamelouks</span>
+                            </div>
+                            <div class="timeline" id="tl"></div>
+                            <div class="timeline-panel" id="panel">
+                                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; color: #7f8c8d;">
+                                    <span style="font-size: 2em; margin-bottom: 10px;">👆</span>
+                                    <span>Sélectionne une dynastie sur la frise pour afficher sa fiche de révision</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="plan-card">
-                <h3>🏛️ La Grèce Classique</h3>
-                <p><strong>Problématique :</strong> Comment le monde grec à l'époque classique, tiraillé entre un profond sentiment d'unité culturelle (hellénicité) et de perpétuelles rivalités politiques entre cités-États, forge-t-il des modèles politiques hégémoniques inédits avant de succomber à ses propres divisions et d'être absorbé par l'Empire macédonien ?</p>
-                <ul>
-                    <li><strong>I. L'UNITÉ DANS LA FRAGMENTATION: FONDEMENTS CULTURELS ET MODÈLES CIVIQUES</strong>
-                        <ul>
-                            <li>A. L'hellénicité: identité, religion et rassemblements</li>
-                            <li>B. L'expérience démocratique athénienne: l'isonomie en action</li>
-                            <li>C. Les limites et les exclusions du modèle civique</li>
-                        </ul>
-                    </li>
-                    <li><strong>II. LE VE SIÈCLE: GUERRES, HÉGÉMONIE ET DÉCHIREMENT DU MONDE GREC</strong>
-                        <ul>
-                            <li>A. Les guerres médiques: le face-à-face avec les Perses</li>
-                            <li>B. La thalassocratie athénienne: de l'alliance à l'Empire</li>
-                            <li>C. La guerre du Péloponnèse: le suicide politique des cités</li>
-                        </ul>
-                    </li>
-                    <li><strong>III. LE IVE SIÈCLE: DE L'INSTABILITÉ DES CITÉS À L'EMPIRE UNIVERSEL</strong>
-                        <ul>
-                            <li>A. Les luttes incessantes et l'hégémonie introuvable</li>
-                            <li>B. L'essor de la Macédoine et la perte de liberté des Grecs</li>
-                            <li>C. Alexandre le Grand: la dilatation du monde grec</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="plan-card">
-                <h3>🦅 Rome (République et Empire)</h3>
-                <p><strong>Problématique :</strong> Comment Rome est-elle parvenue à bâtir et maintenir un empire territorial universel, en adaptant continuellement ses structures politiques, passant d'une République oligarchique minée par l'ampleur de ses propres conquêtes, à un système impérial (le Principat) fondé sur l'intégration des vaincus et la redéfinition permanente de sa « romanité » ?</p>
-                <ul>
-                    <li><strong>I. LA RÉPUBLIQUE ROMAINE: GESTATION D'UN MODÈLE ET CONQUÊTE DE L'HÉGÉMONIE (509 - 133 av. J.-C.)</strong>
-                        <ul>
-                            <li>A. Un système politique oligarchique et patricio-plébéien</li>
-                            <li>B. Le rouleau compresseur militaire et la Pyramide de conquête de l'Italie</li>
-                            <li>C. L'impérialisme méditerranéen et ses conséquences</li>
-                        </ul>
-                    </li>
-                    <li><strong>II. LE CRÉPUSCULE DE LA RÉPUBLIQUE ET L'INVENTION DU PRINCIPAT (133 av. J.-C. - 14 apr. J.-C.)</strong>
-                        <ul>
-                            <li>A. La crise systémique: blocages sociaux et violence politique</li>
-                            <li>B. Le temps des imperatores: la marche vers le pouvoir personnel</li>
-                            <li>C. Le compromis d'Auguste un régime monarchique masqué</li>
-                        </ul>
-                    </li>
-                    <li><strong>III. L'EMPIRE: APOGÉE, INTÉGRATION ET MUTATIONS DE L'ANTIQUITÉ TARDIVE (Ier - Ve siècle)</strong>
-                        <ul>
-                            <li>A. La Pax Romana et la romanisation des provinces</li>
-                            <li>B. La "crise du IIIe siècle" et le redressement impérial</li>
-                            <li>C. Christianisation et fragmentation de l'Occident</li>
-                        </ul>
-                    </li>
-                </ul>
+                
+                <div class="plan-card">
+                    <h3>⚔️ Contacts et conflits en Méditerranée (VIe-XIIIe siècles)</h3>
+                    <p><strong>Problématique :</strong> Dans quelle mesure la Méditerranée, d'abord fragmentée par l'effondrement de l'Antiquité tardive et l'émergence de trois aires de civilisation rivales (Byzance, Islam, Occident latin), devient-elle entre le VIe et le XIIIe siècle un laboratoire complexe où la violence des affrontements géopolitiques n'entrave pas, mais s'articule paradoxalement avec de puissantes dynamiques d'échanges commerciaux et de métissages culturels ?</p>
+                    <ul>
+                        <li><strong>I. La fragmentation d'un "lac romain" et la genèse de trois aires de civilisation en confrontation (VIe-Xe siècles)</strong>
+                            <ul>
+                                <li>A. Byzance, entre permanence impériale et redéfinition territoriale</li>
+                                <li>B. Le bouleversement islamique: expansion, structuration et pluralité des califats</li>
+                                <li>C. L'Italie méridionale et insulaire: carrefours et zones frontières</li>
+                            </ul>
+                        </li>
+                        <li><strong>II. L'inversion des rapports de force: offensives latines et recompositions géopolitiques (XIe-XIIIe siècles)</strong>
+                            <ul>
+                                <li>A. La Reconquista et l'intégration de la Méditerranée occidentale</li>
+                                <li>B. Croisades, mythes croisés et fragilité des États latins d'Orient</li>
+                                <li>C. L'Orient redessiné: l'irruption mongole et le glacis mamelouk</li>
+                            </ul>
+                        </li>
+                        <li><strong>III. Au-delà du fracas des armes: la Méditerranée comme espace partagé d'échanges et de métissages</strong>
+                            <ul>
+                                <li>A. La thalassocratie marchande et la "révolution" nautique italienne</li>
+                                <li>B. "Convivencia" et conflictualité: minorités et cohabitation pragmatique</li>
+                                <li>C. L'effervescence intellectuelle: le creuset des transferts culturels</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="plan-card">
-                <h3>⚔️ Contacts et conflits en Méditerranée (VIe-XIIIe siècles)</h3>
-                <p><strong>Problématique :</strong> Dans quelle mesure la Méditerranée, d'abord fragmentée par l'effondrement de l'Antiquité tardive et l'émergence de trois aires de civilisation rivales (Byzance, Islam, Occident latin), devient-elle entre le VIe et le XIIIe siècle un laboratoire complexe où la violence des affrontements géopolitiques n'entrave pas, mais s'articule paradoxalement avec de puissantes dynamiques d'échanges commerciaux et de métissages culturels ?</p>
-                <ul>
-                    <li><strong>I. La fragmentation d'un "lac romain" et la genèse de trois aires de civilisation en confrontation (VIe-Xe siècles)</strong>
-                        <ul>
-                            <li>A. Byzance, entre permanence impériale et redéfinition territoriale</li>
-                            <li>B. Le bouleversement islamique: expansion, structuration et pluralité des califats</li>
-                            <li>C. L'Italie méridionale et insulaire: carrefours et zones frontières</li>
-                        </ul>
-                    </li>
-                    <li><strong>II. L'inversion des rapports de force: offensives latines et recompositions géopolitiques (XIe-XIIIe siècles)</strong>
-                        <ul>
-                            <li>A. La Reconquista et l'intégration de la Méditerranée occidentale</li>
-                            <li>B. Croisades, mythes croisés et fragilité des États latins d'Orient</li>
-                            <li>C. L'Orient redessiné: l'irruption mongole et le glacis mamelouk</li>
-                        </ul>
-                    </li>
-                    <li><strong>III. Au-delà du fracas des armes: la Méditerranée comme espace partagé d'échanges et de métissages</strong>
-                        <ul>
-                            <li>A. La thalassocratie marchande et la "révolution" nautique italienne</li>
-                            <li>B. "Convivencia" et conflictualité: minorités et cohabitation pragmatique</li>
-                            <li>C. L'effervescence intellectuelle: le creuset des transferts culturels</li>
-                        </ul>
-                    </li>
-                </ul>
+            <div id="h-eglise" class="sub-tab-content">
+                <div class="plan-card">
+                    <h3>⛪ Société, Église et pouvoir politique dans l'Occident médiéval (XIe-XVe siècles)</h3>
+                    <p><strong>Problématique :</strong> Comment l'Occident médiéval, initialement fragmenté par la seigneurie et structuré par les ambitions théocratiques de l'Église grégorienne, parvient-il, à travers de profondes mutations socio-économiques et le traumatisme des crises de la fin du Moyen Âge, à asseoir la genèse de l'État moderne fisco-militaire ?</p>
+                    <ul>
+                        <li><strong>I. L'ordre féodal, l'élan ecclésial et l'expansion de l'Occident (XIe-XIIe siècles)</strong>
+                            <ul>
+                                <li>A. La seigneurie et la structuration de la société féodale</li>
+                                <li>B. La réforme grégorienne et la "révolution" papale</li>
+                                <li>C. Un monde en expansion: essor agraire et renouveau urbain</li>
+                            </ul>
+                        </li>
+                        <li><strong>II. L'apogée des pouvoirs et de l'encadrement social (XIIIe - début XIVe siècles)</strong>
+                            <ul>
+                                <li>A. La papauté théocratique et le contrôle des consciences</li>
+                                <li>B. La consolidation des appareils d'État monarchiques</li>
+                                <li>C. L'apogée urbain: universités et réseaux marchands</li>
+                            </ul>
+                        </li>
+                        <li><strong>III. Le crépuscule d'un monde et les recompositions (XIV-XVe siècles)</strong>
+                            <ul>
+                                <li>A. Les fléaux: une society ébranlée et la "crise" du système</li>
+                                <li>B. La guerre permanente et le triomphe de l'État fisco-militaire</li>
+                                <li>C. Schisme, conciliarisme et redéfinition des dialogues politiques</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="plan-card">
-                <h3>⛪ Société, Église et pouvoir politique dans l'Occident médiéval (XIe-XVe siècles)</h3>
-                <p><strong>Problématique :</strong> Comment l'Occident médiéval, initialement fragmenté par la seigneurie et structuré par les ambitions théocratiques de l'Église grégorienne, parvient-il, à travers de profondes mutations socio-économiques et le traumatisme des crises de la fin du Moyen Âge, à asseoir la genèse de l'État moderne fisco-militaire ?</p>
-                <ul>
-                    <li><strong>I. L'ordre féodal, l'élan ecclésial et l'expansion de l'Occident (XIe-XIIe siècles)</strong>
-                        <ul>
-                            <li>A. La seigneurie et la structuration de la société féodale</li>
-                            <li>B. La réforme grégorienne et la "révolution" papale</li>
-                            <li>C. Un monde en expansion: essor agraire et renouveau urbain</li>
-                        </ul>
-                    </li>
-                    <li><strong>II. L'apogée des pouvoirs et de l'encadrement social (XIIIe - début XIVe siècles)</strong>
-                        <ul>
-                            <li>A. La papauté théocratique et le contrôle des consciences</li>
-                            <li>B. La consolidation des appareils d'État monarchiques</li>
-                            <li>C. L'apogée urbain: universités et réseaux marchands</li>
-                        </ul>
-                    </li>
-                    <li><strong>III. Le crépuscule d'un monde et les recompositions (XIV-XVe siècles)</strong>
-                        <ul>
-                            <li>A. Les fléaux: une society ébranlée et la "crise" du système</li>
-                            <li>B. La guerre permanente et le triomphe de l'État fisco-militaire</li>
-                            <li>C. Schisme, conciliarisme et redéfinition des dialogues politiques</li>
-                        </ul>
-                    </li>
-                </ul>
+            <div id="h-renais" class="sub-tab-content">
+                <div class="plan-card">
+                    <h3>🌍 Renaissance, Humanisme et Réformes religieuses (XVe-XVIIe siècles)</h3>
+                    <p><strong>Problématique :</strong> En quoi le désenclavement du monde, le bouleversement des savoirs et la fracture religieuse des XVe-XVIIe siècles constituent-ils les moteurs interdépendants d'une modernité européenne à la fois conquérante, innovante et profondément divisée ?</p>
+                    <ul>
+                        <li><strong>I. L'ouverture au monde: l'ère des Grandes Découvertes et la première mondialisation</strong>
+                            <ul>
+                                <li>A. Les causes et les moyens de l'expansion européenne</li>
+                                <li>B. Conquête, exploitation et constitution des premiers empires coloniaux</li>
+                                <li>C. L'avènement contesté d'une "première mondialisation"</li>
+                            </ul>
+                        </li>
+                        <li><strong>II. La Renaissance et l'Humanisme: un renouvellement intellectuel et artistique</strong>
+                            <ul>
+                                <li>A. L'Humanisme: replacer l'Homme au centre et redécouvrir les Anciens</li>
+                                <li>B. Le renouveau balbutiant des sciences et des savoirs</li>
+                                <li>C. La floraison artistique et le rôle du mécénat</li>
+                            </ul>
+                        </li>
+                        <li><strong>III. Les Réformes religieuses: l'Europe face à la fracture confessionnelle</strong>
+                            <ul>
+                                <li>A. Les causes de la rupture et l'éclosion des socialismes protestants</li>
+                                <li>B. La Réforme catholique (Contre-Réforme) et l'ordre tridentin</li>
+                                <li>C. L'entremêlement du politique et du religieux: le temps des guerres</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="plan-card">
-                <h3>🌍 Renaissance, Humanisme et Réformes religieuses (XVe-XVIIe siècles)</h3>
-                <p><strong>Problématique :</strong> En quoi le désenclavement du monde, le bouleversement des savoirs et la fracture religieuse des XVe-XVIIe siècles constituent-ils les moteurs interdépendants d'une modernité européenne à la fois conquérante, innovante et profondément divisée ?</p>
-                <ul>
-                    <li><strong>I. L'ouverture au monde: l'ère des Grandes Découvertes et la première mondialisation</strong>
-                        <ul>
-                            <li>A. Les causes et les moyens de l'expansion européenne</li>
-                            <li>B. Conquête, exploitation et constitution des premiers empires coloniaux</li>
-                            <li>C. L'avènement contesté d'une "première mondialisation"</li>
-                        </ul>
-                    </li>
-                    <li><strong>II. La Renaissance et l'Humanisme: un renouvellement intellectuel et artistique</strong>
-                        <ul>
-                            <li>A. L'Humanisme: replacer l'Homme au centre et redécouvrir les Anciens</li>
-                            <li>B. Le renouveau balbutiant des sciences et des savoirs</li>
-                            <li>C. La floraison artistique et le rôle du mécénat</li>
-                        </ul>
-                    </li>
-                    <li><strong>III. Les Réformes religieuses: l'Europe face à la fracture confessionnelle</strong>
-                        <ul>
-                            <li>A. Les causes de la rupture et l'éclosion des socialismes protestants</li>
-                            <li>B. La Réforme catholique (Contre-Réforme) et l'ordre tridentin</li>
-                            <li>C. L'entremêlement du politique et du religieux: le temps des guerres</li>
-                        </ul>
-                    </li>
-                </ul>
+            <div id="h-revol" class="sub-tab-content">
+                <div class="plan-card">
+                    <h3>🇫🇷 Révolution française et Empire</h3>
+                    <p><strong>Problématique :</strong> En quoi les remises en cause intellectuelles et les mutations socio-économiques du XVIIIe siècle préparent-elles l'effondrement de l'Ancien Régime, déclenchant une onde de choc révolutionnaire puis impériale qui refonde radicalement et par la guerre l'ordre politique et social de la France et de l'Europe ?</p>
+                    <ul>
+                        <li><strong>I. Le XVIIIe siècle: le temps des ruptures intellectuelles, matérielles et politiques</strong>
+                            <ul>
+                                <li>A. L'essor matériel et les bouleversements socio-économiques</li>
+                                <li>B. Les Lumières: la contestation idéologique de l'absolutisme</li>
+                                <li>C. L'impasse de l'absolutisme français face aux fragilités conjoncturelles</li>
+                            </ul>
+                        </li>
+                        <li><strong>II. La Révolution française de la destruction de l'Ancien Régime à la difficile quête d'un ordre nouveau (1789-1799)</strong>
+                            <ul>
+                                <li>A. 1789 et la monarchie constitutionnelle: le transfert de souveraineté</li>
+                                <li>B. La radicalisation : République populaire, guerre et Terreur (1792-1794)</li>
+                                <li>C. Le Directoire (République bourgeoise): l'impossible stabilisation (1794-1799)</li>
+                            </ul>
+                        </li>
+                        <li><strong>III. L'Empire: ordre, hégémonie militaire et effondrement (1799-1815)</strong>
+                            <ul>
+                                <li>A. Le Consulat: le compromis autoritaire et les "masses de granit"</li>
+                                <li>B. L'Europe napoléonienne: expansion et système d'exploitation</li>
+                                <li>C. L'effondrement: l'éveil des nations et le retour des rois</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="plan-card">
-                <h3>🇫🇷 Révolution française et Empire</h3>
-                <p><strong>Problématique :</strong> En quoi les remises en cause intellectuelles et les mutations socio-économiques du XVIIIe siècle préparent-elles l'effondrement de l'Ancien Régime, déclenchant une onde de choc révolutionnaire puis impériale qui refonde radicalement et par la guerre l'ordre politique et social de la France et de l'Europe ?</p>
-                <ul>
-                    <li><strong>I. Le XVIIIe siècle: le temps des ruptures intellectuelles, matérielles et politiques</strong>
-                        <ul>
-                            <li>A. L'essor matériel et les bouleversements socio-économiques</li>
-                            <li>B. Les Lumières: la contestation idéologique de l'absolutisme</li>
-                            <li>C. L'impasse de l'absolutisme français face aux fragilités conjoncturelles</li>
-                        </ul>
-                    </li>
-                    <li><strong>II. La Révolution française de la destruction de l'Ancien Régime à la difficile quête d'un ordre nouveau (1789-1799)</strong>
-                        <ul>
-                            <li>A. 1789 et la monarchie constitutionnelle: le transfert de souveraineté</li>
-                            <li>B. La radicalisation : République populaire, guerre et Terreur (1792-1794)</li>
-                            <li>C. Le Directoire (République bourgeoise): l'impossible stabilisation (1794-1799)</li>
-                        </ul>
-                    </li>
-                    <li><strong>III. L'Empire: ordre, hégémonie militaire et effondrement (1799-1815)</strong>
-                        <ul>
-                            <li>A. Le Consulat: le compromis autoritaire et les "masses de granit"</li>
-                            <li>B. L'Europe napoléonienne: expansion et système d'exploitation</li>
-                            <li>C. L'effondrement: l'éveil des nations et le retour des rois</li>
-                        </ul>
-                    </li>
-                </ul>
+            <div id="h-19e" class="sub-tab-content">
+                <div class="plan-card">
+                    <h3>🏭 Le XIXe siècle français (1815-1914)</h3>
+                    <p><strong>Problématique :</strong> Comment la France du XIXe siècle (1815-1914) parvient-elle, à travers d'incessants bouleversements institutionnels et une industrialisation heurtée, à forger une "modernité désenchantée" mêlant enracinement du modèle républicain, mutations socio-économiques profondes et expansion impériale à l'échelle mondiale ?</p>
+                    <ul>
+                        <li><strong>I. La longue quête de stabilité politique de l'ordre monarchique aux balbutiements républicains (1815-1879)</strong>
+                            <ul>
+                                <li>A. Les monarchies censitaires: le compromis impossible et l'émergence du libéralisme (1814-1848)</li>
+                                <li>B. Du rêve fraternel à l'ordre impérial: le choc du suffrage universel (1848-1870)</li>
+                                <li>C. La "décennie indécise" et la fondation de la République par la lutte (1870-1879)</li>
+                            </ul>
+                        </li>
+                        <li><strong>II. La "modernité désenchantée": mutations économiques, fractures sociales et migrations</strong>
+                            <ul>
+                                <li>A. Une industrialisation singulière et la redéfinition des classes sociales</li>
+                                <li>B. L'émergence de la question sociale: luttes ouvrières et féminines</li>
+                                <li>C. Le paradoxe de l'intégration: la France, première terre d'immigration en Europe</li>
+                            </ul>
+                        </li>
+                        <li><strong>III. L'apogée d'un État-nation impérial: la République consolidée et mondialisée (1880-1914)</strong>
+                            <ul>
+                                <li>A. La fabrique du citoyen et l'enracinement du modèle républicain</li>
+                                <li>B. Crises et contestations: l'épreuve du nationalisme et de l'antisémitisme</li>
+                                <li>C. La "mission civilisatrice" et la brutalité de l'expansion coloniale</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="plan-card">
-                <h3>🏭 Le XIXe siècle français (1815-1914)</h3>
-                <p><strong>Problématique :</strong> Comment la France du XIXe siècle (1815-1914) parvient-elle, à travers d'incessants bouleversements institutionnels et une industrialisation heurtée, à forger une "modernité désenchantée" mêlant enracinement du modèle républicain, mutations socio-économiques profondes et expansion impériale à l'échelle mondiale ?</p>
-                <ul>
-                    <li><strong>I. La longue quête de stabilité politique de l'ordre monarchique aux balbutiements républicains (1815-1879)</strong>
-                        <ul>
-                            <li>A. Les monarchies censitaires: le compromis impossible et l'émergence du libéralisme (1814-1848)</li>
-                            <li>B. Du rêve fraternel à l'ordre impérial: le choc du suffrage universel (1848-1870)</li>
-                            <li>C. La "décennie indécise" et la fondation de la République par la lutte (1870-1879)</li>
-                        </ul>
-                    </li>
-                    <li><strong>II. La "modernité désenchantée": mutations économiques, fractures sociales et migrations</strong>
-                        <ul>
-                            <li>A. Une industrialisation singulière et la redéfinition des classes sociales</li>
-                            <li>B. L'émergence de la question sociale: luttes ouvrières et féminines</li>
-                            <li>C. Le paradoxe de l'intégration: la France, première terre d'immigration en Europe</li>
-                        </ul>
-                    </li>
-                    <li><strong>III. L'apogée d'un État-nation impérial: la République consolidée et mondialisée (1880-1914)</strong>
-                        <ul>
-                            <li>A. La fabrique du citoyen et l'enracinement du modèle républicain</li>
-                            <li>B. Crises et contestations: l'épreuve du nationalisme et de l'antisémitisme</li>
-                            <li>C. La "mission civilisatrice" et la brutalité de l'expansion coloniale</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="plan-card">
-                <h3>💣 Le XXe siècle : Guerres mondiales, totalitarismes et guerre froide</h3>
-                <p><strong>Problématique :</strong> Comment le XXe siècle, inauguré par la matrice des violences de masse et des idéologies totalitaires, a-t-il accouché d'un ordre mondial d'abord polarisé, puis globalisé et asymétrique, redéfinissant sans cesse les hiérarchies de puissance?</p>
-                <ul>
-                    <li><strong>I. L'ère des cataclysmes: destruction de l'ordre européen, violences de masse et totalitarismes (1914-1945)</strong>
-                        <ul>
-                            <li>A. La matrice de la Première Guerre mondiale: vers la guerre totale</li>
-                            <li>B. L'entre-deux-guerres et l'apogée des totalitarismes</li>
-                            <li>C. La Seconde Guerre mondiale: guerre d'anéantissement et génocides</li>
-                        </ul>
-                    </li>
-                    <li><strong>II. Un monde bipolaire et fragmenté: l'affrontement des modèles et l'émergence de nouveaux acteurs (1945-1991)</strong>
-                        <ul>
-                            <li>A. La Guerre froide: un monde sous l'équilibre de la terreur</li>
-                            <li>B. Décolonisations et émergence du "Tiers-Monde"</li>
-                            <li>C. Vivre les "Trente Glorieuses" et le modèle soviétique: croissances et contestations</li>
-                        </ul>
-                    </li>
-                    <li><strong>III. Les mutations de la fin de siècle: crises, mondialisation et nouvelles conflictualités (Des années 1970 à nos jours)</strong>
-                        <ul>
-                            <li>A. Les chocs des années 1970-1980: le tournant néolibéral et environnemental</li>
-                            <li>B. Le monde post-Guerre froide: de l'hyperpuissance à la globalisation</li>
-                            <li>C. L'émergence des conflictualités contemporaines: asymétries et poudrière moyen-orientale</li>
-                        </ul>
-                    </li>
-                </ul>
+            <div id="h-20e" class="sub-tab-content">
+                <div class="plan-card">
+                    <h3>💣 Le XXe siècle : Guerres mondiales, totalitarismes et guerre froide</h3>
+                    <p><strong>Problématique :</strong> Comment le XXe siècle, inauguré par la matrice des violences de masse et des idéologies totalitaires, a-t-il accouché d'un ordre mondial d'abord polarisé, puis globalisé et asymétrique, redéfinissant sans cesse les hiérarchies de puissance?</p>
+                    <ul>
+                        <li><strong>I. L'ère des cataclysmes: destruction de l'ordre européen, violences de masse et totalitarismes (1914-1945)</strong>
+                            <ul>
+                                <li>A. La matrice de la Première Guerre mondiale: vers la guerre totale</li>
+                                <li>B. L'entre-deux-guerres et l'apogée des totalitarismes</li>
+                                <li>C. La Seconde Guerre mondiale: guerre d'anéantissement et génocides</li>
+                            </ul>
+                        </li>
+                        <li><strong>II. Un monde bipolaire et fragmenté: l'affrontement des modèles et l'émergence de nouveaux acteurs (1945-1991)</strong>
+                            <ul>
+                                <li>A. La Guerre froide: un monde sous l'équilibre de la terreur</li>
+                                <li>B. Décolonisations et émergence du "Tiers-Monde"</li>
+                                <li>C. Vivre les "Trente Glorieuses" et le modèle soviétique: croissances et contestations</li>
+                            </ul>
+                        </li>
+                        <li><strong>III. Les mutations de la fin de siècle: crises, mondialisation et nouvelles conflictualités (Des années 1970 à nos jours)</strong>
+                            <ul>
+                                <li>A. Les chocs des années 1970-1980: le tournant néolibéral et environnemental</li>
+                                <li>B. Le monde post-Guerre froide: de l'hyperpuissance à la globalisation</li>
+                                <li>C. L'émergence des conflictualités contemporaines: asymétries et poudrière moyen-orientale</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
 
         <div id="geographie" class="section">
             <h1>Plans Magiques - Géographie</h1>
             
-            <div class="plan-card">
-                <h3>🥖 La France</h3>
-                <p><strong>Problématique :</strong> Comment le territoire français, tiraillé entre ses lourds héritages étatiques et centralisateurs, se recompose-t-il à toutes les échelles sous l'effet des dynamiques de métropolisation, de mondialisation et d'intégration européenne, oscillant en permanence entre intégration et fragmentation?</p>
-                <ul>
-                    <li><strong>I. Un territoire en recomposition: la polarisation par les populations et les systèmes productifs</strong>
-                        <ul>
-                            <li>A. L'armature urbaine et la métropolisation: un territoire polarisé</li>
-                            <li>B. Les mutations des systèmes productifs: vers l'économie de la connaissance</li>
-                            <li>C. Des espaces ruraux multifonctionnels: entre déprise et renouveau</li>
-                        </ul>
-                    </li>
-                    <li><strong>II. Fractures, inégalités et vulnérabilités : la géographie des tensions territoriales</strong>
-                        <ul>
-                            <li>A. Les ségrégations socio-spatiales aux échelles intra et périurbaines</li>
-                            <li>B. Le rapport centre-périphérie et la persistance des marges</li>
-                            <li>C. Vulnérabilités environnementales et conflits d'usage</li>
-                        </ul>
-                    </li>
-                    <li><strong>III. Aménagement, gouvernance et projection: la France dans ses emboîtements d'échelles</strong>
-                        <ul>
-                            <li>A. De l'État aménageur à la gouvernance décentralisée: une gestion complexe</li>
-                            <li>B. La France dans l'Union européenne: intégration et dynamiques transfrontalières</li>
-                            <li>C. Une puissance mondiale et ultramarine: rayonnement et asymétries</li>
-                        </ul>
-                    </li>
-                </ul>
+            <div class="sub-tabs">
+                <button class="sub-tab-btn active-sub" onclick="showSubTab('g-france', this)">🥖 France</button>
+                <button class="sub-tab-btn" onclick="showSubTab('g-ue', this)">🇪🇺 UE</button>
+                <button class="sub-tab-btn" onclick="showSubTab('g-pop', this)">👥 Population</button>
+                <button class="sub-tab-btn" onclick="showSubTab('g-urb', this)">🏙️ Urbaine</button>
+                <button class="sub-tab-btn" onclick="showSubTab('g-mond', this)">🌐 Mondialisation</button>
+                <button class="sub-tab-btn" onclick="showSubTab('g-geopol', this)">🗺️ Géopolitique</button>
+                <button class="sub-tab-btn" onclick="showSubTab('g-rural', this)">🌾 Rurale</button>
+                <button class="sub-tab-btn" onclick="showSubTab('g-env', this)">🌱 Environnement</button>
             </div>
 
-            <div class="plan-card">
-                <h3>🇪🇺 L'Union Européenne</h3>
-                <p><strong>Problématique :</strong> Comment l'Union européenne, objet géographique singulier et institutionnel inédit, parvient-elle à construire une cohésion territoriale face à de profondes fractures internes, tout en cherchant à s'affirmer comme puissance stratégique dans la mondialisation ?</p>
-                <ul>
-                    <li><strong>I. Un objet géographique singulier: la construction d'un territoire par l'intégration</strong>
-                        <ul>
-                            <li>A. Un projet politique inédit aux frontières mouvantes</li>
-                            <li>B. Réseaux et mobilités: coudre l'espace européen</li>
-                            <li>C. L'armature urbaine: une métropolisation en réseau</li>
-                        </ul>
-                    </li>
-                    <li><strong>II. Diversité, inégalités et fractures: les limites de la cohésion</strong>
-                        <ul>
-                            <li>A. Le défi démographique: vieillissement et migrations</li>
-                            <li>B. La persistance des disparités centre-périphérie</li>
-                            <li>C. Mutations productives et crises des espaces locaux</li>
-                        </ul>
-                    </li>
-                    <li><strong>III. L'Union européenne dans le monde: une puissance tiraillée</strong>
-                        <ul>
-                            <li>A. Un géant géoéconomique fondé sur le marché et la norme</li>
-                            <li>B. Vulnérabilités stratégiques et dépendances</li>
-                            <li>C. L'intégration par la crise: vers une relance du projet ?</li>
-                        </ul>
-                    </li>
-                </ul>
+            <div id="g-france" class="sub-tab-content active-sub-content">
+                <div class="plan-card">
+                    <h3>🥖 La France</h3>
+                    <p><strong>Problématique :</strong> Comment le territoire français, tiraillé entre ses lourds héritages étatiques et centralisateurs, se recompose-t-il à toutes les échelles sous l'effet des dynamiques de métropolisation, de mondialisation et d'intégration européenne, oscillant en permanence entre intégration et fragmentation?</p>
+                    <ul>
+                        <li><strong>I. Un territoire en recomposition: la polarisation par les populations et les systèmes productifs</strong>
+                            <ul>
+                                <li>A. L'armature urbaine et la métropolisation: un territoire polarisé</li>
+                                <li>B. Les mutations des systèmes productifs: vers l'économie de la connaissance</li>
+                                <li>C. Des espaces ruraux multifonctionnels: entre déprise et renouveau</li>
+                            </ul>
+                        </li>
+                        <li><strong>II. Fractures, inégalités et vulnérabilités : la géographie des tensions territoriales</strong>
+                            <ul>
+                                <li>A. Les ségrégations socio-spatiales aux échelles intra et périurbaines</li>
+                                <li>B. Le rapport centre-périphérie et la persistance des marges</li>
+                                <li>C. Vulnérabilités environnementales et conflits d'usage</li>
+                            </ul>
+                        </li>
+                        <li><strong>III. Aménagement, gouvernance et projection: la France dans ses emboîtements d'échelles</strong>
+                            <ul>
+                                <li>A. De l'État aménageur à la gouvernance décentralisée: une gestion complexe</li>
+                                <li>B. La France dans l'Union européenne: intégration et dynamiques transfrontalières</li>
+                                <li>C. Une puissance mondiale et ultramarine: rayonnement et asymétries</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="plan-card">
-                <h3>👥 Géographie de la population</h3>
-                <p><strong>Problématique :</strong> Comment les dynamiques démographiques contemporaines, héritières d'une longue histoire et de contraintes spatiales fortes, recomposent-elles et fragmentent-elles l'écoumène à toutes les échelles, entre concentration métropolitaine et défis du développement durable ?</p>
-                <ul>
-                    <li><strong>I. L'inégale répartition des hommes: la permanence des pleins et des vides</strong>
-                        <ul>
-                            <li>A. Une équirépartition impossible: l'opposition structurelle des pleins et des vides</li>
-                            <li>B. Le poids des contraintes physiques et la littoralisation de l'écoumène</li>
-                            <li>C. Le temps long du peuplement: héritages historiques et révolutions techniques</li>
-                        </ul>
-                    </li>
-                    <li><strong>II. Des dynamiques démographiques plurielles et fragmentées</strong>
-                        <ul>
-                            <li>A. La transition démographique: un modèle universel, des trajectoires éclatées</li>
-                            <li>B. Les mobilités et migrations internationales: la recomposition réticulaire des espaces</li>
-                            <li>C. La transition urbaine et la métropolisation du monde</li>
-                        </ul>
-                    </li>
-                    <li><strong>III. Les défis socio-spatiaux du peuplement contemporain: ressources, développement et vulnérabilités</strong>
-                        <ul>
-                            <li>A. L'équation population-ressources: entre capacités de charge et souveraineté alimentaire</li>
-                            <li>B. Inégalités de développement et vulnérabilités socio-sanitaires</li>
-                            <li>C. Les défis environnementaux et le changement climatique</li>
-                        </ul>
-                    </li>
-                </ul>
+            <div id="g-ue" class="sub-tab-content">
+                <div class="plan-card">
+                    <h3>🇪🇺 L'Union Européenne</h3>
+                    <p><strong>Problématique :</strong> Comment l'Union européenne, objet géographique singulier et institutionnel inédit, parvient-elle à construire une cohésion territoriale face à de profondes fractures internes, tout en cherchant à s'affirmer comme puissance stratégique dans la mondialisation ?</p>
+                    <ul>
+                        <li><strong>I. Un objet géographique singulier: la construction d'un territoire par l'intégration</strong>
+                            <ul>
+                                <li>A. Un projet politique inédit aux frontières mouvantes</li>
+                                <li>B. Réseaux et mobilités: coudre l'espace européen</li>
+                                <li>C. L'armature urbaine: une métropolisation en réseau</li>
+                            </ul>
+                        </li>
+                        <li><strong>II. Diversité, inégalités et fractures: les limites de la cohésion</strong>
+                            <ul>
+                                <li>A. Le défi démographique: vieillissement et migrations</li>
+                                <li>B. La persistance des disparités centre-périphérie</li>
+                                <li>C. Mutations productives et crises des espaces locaux</li>
+                            </ul>
+                        </li>
+                        <li><strong>III. L'Union européenne dans le monde: une puissance tiraillée</strong>
+                            <ul>
+                                <li>A. Un géant géoéconomique fondé sur le marché et la norme</li>
+                                <li>B. Vulnérabilités stratégiques et dépendances</li>
+                                <li>C. L'intégration par la crise: vers une relance du projet ?</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="plan-card">
-                <h3>🏙️ Géographie urbaine</h3>
-                <p><strong>Problématique :</strong> Comment la ville, devenue le mode d'organisation spatiale dominant à l'échelle mondiale, recompose-t-elle ses territoires et ses sociétés face aux défis contemporains ?</p>
-                <ul>
-                    <li><strong>I. Le fait urbain à l'échelle mondiale: définitions, trajectoires et hiérarchies</strong>
-                        <ul>
-                            <li>A. Définir la ville et l'urbain</li>
-                            <li>B. La transition urbaine et ses contrastes</li>
-                            <li>C. Réseaux de villes et métropolisation</li>
-                        </ul>
-                    </li>
-                    <li><strong>II. L'organisation interne des villes: morphologie, sociétés et acteurs</strong>
-                        <ul>
-                            <li>A. Morphologie et étalement urbain</li>
-                            <li>B. Fractures et inégalités socio-spatiales</li>
-                            <li>C. La fabrique de la ville et les espaces publics</li>
-                        </ul>
-                    </li>
-                    <li><strong>III. Les grands défis contemporains et les futurs urbains</strong>
-                        <ul>
-                            <li>A. Les vulnérabilités environnementales et climatiques</li>
-                            <li>B. L'enjeu des mobilités</li>
-                            <li>C. Les imaginaires urbains entre utopies et dystopies</li>
-                        </ul>
-                    </li>
-                </ul>
+            <div id="g-pop" class="sub-tab-content">
+                <div class="plan-card">
+                    <h3>👥 Géographie de la population</h3>
+                    <p><strong>Problématique :</strong> Comment les dynamiques démographiques contemporaines, héritières d'une longue histoire et de contraintes spatiales fortes, recomposent-elles et fragmentent-elles l'écoumène à toutes les échelles, entre concentration métropolitaine et défis du développement durable ?</p>
+                    <ul>
+                        <li><strong>I. L'inégale répartition des hommes: la permanence des pleins et des vides</strong>
+                            <ul>
+                                <li>A. Une équirépartition impossible: l'opposition structurelle des pleins et des vides</li>
+                                <li>B. Le poids des contraintes physiques et la littoralisation de l'écoumène</li>
+                                <li>C. Le temps long du peuplement: héritages historiques et révolutions techniques</li>
+                            </ul>
+                        </li>
+                        <li><strong>II. Des dynamiques démographiques plurielles et fragmentées</strong>
+                            <ul>
+                                <li>A. La transition démographique: un modèle universel, des trajectoires éclatées</li>
+                                <li>B. Les mobilités et migrations internationales: la recomposition réticulaire des espaces</li>
+                                <li>C. La transition urbaine et la métropolisation du monde</li>
+                            </ul>
+                        </li>
+                        <li><strong>III. Les défis socio-spatiaux du peuplement contemporain: ressources, développement et vulnérabilités</strong>
+                            <ul>
+                                <li>A. L'équation population-ressources: entre capacités de charge et souveraineté alimentaire</li>
+                                <li>B. Inégalités de développement et vulnérabilités socio-sanitaires</li>
+                                <li>C. Les défis environnementaux et le changement climatique</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="plan-card">
-                <h3>🌐 Géographie de la mondialisation</h3>
-                <p><strong>Problématique :</strong> Dans quelle mesure la mondialisation, bien qu'agissant comme une force d'intégration planétaire par les flux, engendre-t-elle simultanément des fragmentations territoriales, des rivalités géopolitiques et des inégalités sociales à toutes les échelles ?</p>
-                <ul>
-                    <li><strong>I. Les vecteurs et les acteurs de l'intégration planétaire</strong>
-                        <ul>
-                            <li>A. L'explosion des flux et la mise en réseau du monde</li>
-                            <li>B. Le rôle moteur des Firmes Transnationales (FTN)</li>
-                        </ul>
-                    </li>
-                    <li><strong>II. L'hypersélectivité : une mondialisation productrice d'inégalités</strong>
-                        <ul>
-                            <li>A. La métropolisation et la concentration des pouvoirs</li>
-                            <li>B. Territoires intégrés vs espaces exclus ou dominés</li>
-                            <li>C. Fragmentation intra-étatique et polarisation sociale</li>
-                        </ul>
-                    </li>
-                    <li><strong>III. Basculements géopolitiques et défis de gouvernance</strong>
-                        <ul>
-                            <li>A. Le basculement vers l'Asie et l'émergence multipolaire</li>
-                            <li>B. Le retour en force des États et des rivalités géopolitiques</li>
-                            <li>C. Finitude du monde et urgence du développement durable</li>
-                        </ul>
-                    </li>
-                </ul>
+            <div id="g-urb" class="sub-tab-content">
+                <div class="plan-card">
+                    <h3>🏙️ Géographie urbaine</h3>
+                    <p><strong>Problématique :</strong> Comment la ville, devenue le mode d'organisation spatiale dominant à l'échelle mondiale, recompose-t-elle ses territoires et ses sociétés face aux défis contemporains ?</p>
+                    <ul>
+                        <li><strong>I. Le fait urbain à l'échelle mondiale: définitions, trajectoires et hiérarchies</strong>
+                            <ul>
+                                <li>A. Définir la ville et l'urbain</li>
+                                <li>B. La transition urbaine et ses contrastes</li>
+                                <li>C. Réseaux de villes et métropolisation</li>
+                            </ul>
+                        </li>
+                        <li><strong>II. L'organisation interne des villes: morphologie, sociétés et acteurs</strong>
+                            <ul>
+                                <li>A. Morphologie et étalement urbain</li>
+                                <li>B. Fractures et inégalités socio-spatiales</li>
+                                <li>C. La fabrique de la ville et les espaces publics</li>
+                            </ul>
+                        </li>
+                        <li><strong>III. Les grands défis contemporains et les futurs urbains</strong>
+                            <ul>
+                                <li>A. Les vulnérabilités environnementales et climatiques</li>
+                                <li>B. L'enjeu des mobilités</li>
+                                <li>C. Les imaginaires urbains entre utopies et dystopies</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="plan-card">
-                <h3>🗺️ Géopolitique : Frontières et Conflits</h3>
-                <ul>
-                    <li><strong>I. Une redéfinition historique et conceptuelle de la puissance</strong>
-                        <ul>
-                            <li>A. Des théories classiques fondées sur la maîtrise du territoire</li>
-                            <li>B. L'élargissement et la diversification des critères de puissance</li>
-                            <li>C. De nouvelles manières d'exercer l'influence</li>
-                        </ul>
-                    </li>
-                    <li><strong>II. Des frontières et des conflits en pleine recomposition</strong>
-                        <ul>
-                            <li>A. Le paradoxe de l'ouverture et de la fermeture des frontières</li>
-                            <li>B. Des guerres protéiformes, hybrides et invisibles</li>
-                            <li>C. La multiplication des tensions internes: minorités et conflits d'usage</li>
-                        </ul>
-                    </li>
-                    <li><strong>III. La ruée vers de nouveaux espaces de conquête</strong>
-                        <ul>
-                            <li>A. La maritimisation et l'appropriation des océans</li>
-                            <li>B. L'espace extra-atmosphérique et les mondes polaires</li>
-                            <li>C. Le cyberespace: un nouveau champ de bataille immatériel</li>
-                        </ul>
-                    </li>
-                </ul>
+            <div id="g-mond" class="sub-tab-content">
+                <div class="plan-card">
+                    <h3>🌐 Géographie de la mondialisation</h3>
+                    <p><strong>Problématique :</strong> Dans quelle mesure la mondialisation, bien qu'agissant comme une force d'intégration planétaire par les flux, engendre-t-elle simultanément des fragmentations territoriales, des rivalités géopolitiques et des inégalités sociales à toutes les échelles ?</p>
+                    <ul>
+                        <li><strong>I. Les vecteurs et les acteurs de l'intégration planétaire</strong>
+                            <ul>
+                                <li>A. L'explosion des flux et la mise en réseau du monde</li>
+                                <li>B. Le rôle moteur des Firmes Transnationales (FTN)</li>
+                            </ul>
+                        </li>
+                        <li><strong>II. L'hypersélectivité : une mondialisation productrice d'inégalités</strong>
+                            <ul>
+                                <li>A. La métropolisation et la concentration des pouvoirs</li>
+                                <li>B. Territoires intégrés vs espaces exclus ou dominés</li>
+                                <li>C. Fragmentation intra-étatique et polarisation sociale</li>
+                            </ul>
+                        </li>
+                        <li><strong>III. Basculements géopolitiques et défis de gouvernance</strong>
+                            <ul>
+                                <li>A. Le basculement vers l'Asie et l'émergence multipolaire</li>
+                                <li>B. Le retour en force des États et des rivalités géopolitiques</li>
+                                <li>C. Finitude du monde et urgence du développement durable</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="plan-card">
-                <h3>🌾 Géographie rurale</h3>
-                <p><strong>Problématique :</strong> Comment les espaces ruraux, traditionnellement définis par l'activité agricole, se transforment-ils en territoires multifonctionnels sous l'effet de la métropolisation et des nouveaux enjeux environnementaux ?</p>
-                <ul>
-                    <li><strong>I. Des dynamiques démographiques contrastées: entre renaissance et déprise</strong>
-                        <ul>
-                            <li>A. La "renaissance rurale" dans les pays développés</li>
-                            <li>B. L'exode rural massif dans les pays des Suds</li>
-                            <li>C. La déprise et la "diagonale des faibles densités"</li>
-                        </ul>
-                    </li>
-                    <li><strong>II. La mutation des activités: de l'agriculture à la multifonctionnalité</strong>
-                        <ul>
-                            <li>A. Une agriculture entre productivisme et durabilité</li>
-                            <li>B. L'essor de l'économie résidentielle et touristique</li>
-                            <li>C. L'industrialisation rurale</li>
-                        </ul>
-                    </li>
-                    <li><strong>III. Les nouveaux enjeux: conflits d'usage et préservation</strong>
-                        <ul>
-                            <li>A. Les conflits d'usage</li>
-                            <li>B. La question foncière et l'artificialisation</li>
-                            <li>C. La préservation de la biodiversité</li>
-                        </ul>
-                    </li>
-                </ul>
+            <div id="g-geopol" class="sub-tab-content">
+                <div class="plan-card">
+                    <h3>🗺️ Géopolitique : Frontières et Conflits</h3>
+                    <p><strong>Problématique :</strong> Comment les rapports de puissance contemporains se redéfinissent-ils à travers la multiplication de frontières hybrides, l'évolution des formes de conflictualité et la compétition pour l'appropriation de nouveaux espaces stratégiques ?</p>
+                    <ul>
+                        <li><strong>I. Une redéfinition historique et conceptuelle de la puissance</strong>
+                            <ul>
+                                <li>A. Des théories classiques fondées sur la maîtrise du territoire</li>
+                                <li>B. L'élargissement et la diversification des critères de puissance</li>
+                                <li>C. De nouvelles manières d'exercer l'influence</li>
+                            </ul>
+                        </li>
+                        <li><strong>II. Des frontières et des conflits en pleine recomposition</strong>
+                            <ul>
+                                <li>A. Le paradoxe de l'ouverture et de la fermeture des frontières</li>
+                                <li>B. Des guerres protéiformes, hybrides et invisibles</li>
+                                <li>C. La multiplication des tensions internes: minorités et conflits d'usage</li>
+                            </ul>
+                        </li>
+                        <li><strong>III. La ruée vers de nouveaux espaces de conquête</strong>
+                            <ul>
+                                <li>A. La maritimisation et l'appropriation des océans</li>
+                                <li>B. L'espace extra-atmosphérique et les mondes polaires</li>
+                                <li>C. Le cyberespace: un nouveau champ de bataille immatériel</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="plan-card">
-                <h3>🌱 Géographie de l'environnement</h3>
-                <p><strong>Problématique :</strong> Dans quelle mesure l'hybridation et la dégradation de nos environnements à l'ère de l'Anthropocène révèlent-elles de profondes vulnérabilités socio-spatiales, tout en générant de nouvelles tensions géopolitiques autour de la protection et de l'appropriation du monde ?</p>
-                <ul>
-                    <li><strong>I. L'ENVIRONNEMENT À L'ÉPREUVE DES CHANGEMENTS GLOBAUX: COMPLEXITÉ ET DÉRÈGLEMENTS CLIMATIQUES</strong>
-                        <ul>
-                            <li>A. Une conceptualisation évolutive: de la nature idéalisée au système hybride</li>
-                            <li>B. Le système climatique terrestre de la variabilité naturelle au forçage anthropique</li>
-                            <li>C. Impacts systémiques et réponses politiques: le défi de l'atténuation et de l'adaptation</li>
-                        </ul>
-                    </li>
-                    <li><strong>II. RISQUES ET PROTECTION DE LA NATURE : LE DILEMME D'UNE GESTION SOUS TENSION</strong>
-                        <ul>
-                            <li>A. La construction sociétale des risques et leur interconnexion</li>
-                            <li>B. Une inégalité fondamentale dans la vulnérabilité face aux catastrophes</li>
-                            <li>C. L'évolution et les paradoxes de la protection environnementale</li>
-                        </ul>
-                    </li>
-                    <li><strong>III. GÉOPOLITIQUE ET JUSTICE ENVIRONNEMENTALE: LA LUTTE POUR L'APPROPRIATION DU GLOBE</strong>
-                        <ul>
-                            <li>A. La course destructrice aux ressources de la mondialisation</li>
-                            <li>B. La "malédiction des matières premières" et l'émergence des conflits</li>
-                            <li>C. L'urgence sociétale: inégalités, assignations spatiales et (in)justice globale</li>
-                        </ul>
-                    </li>
-                </ul>
+            <div id="g-rural" class="sub-tab-content">
+                <div class="plan-card">
+                    <h3>🌾 Géographie rurale</h3>
+                    <p><strong>Problématique :</strong> Comment les espaces ruraux, traditionnellement définis par l'activité agricole, se transforment-ils en territoires multifonctionnels sous l'effet de la métropolisation et des nouveaux enjeux environnementaux ?</p>
+                    <ul>
+                        <li><strong>I. Des dynamiques démographiques contrastées: entre renaissance et déprise</strong>
+                            <ul>
+                                <li>A. La "renaissance rurale" dans les pays développés</li>
+                                <li>B. L'exode rural massif dans les pays des Suds</li>
+                                <li>C. La déprise et la "diagonale des faibles densités"</li>
+                            </ul>
+                        </li>
+                        <li><strong>II. La mutation des activités: de l'agriculture à la multifonctionnalité</strong>
+                            <ul>
+                                <li>A. Une agriculture entre productivisme et durabilité</li>
+                                <li>B. L'essor de l'économie résidentielle et touristique</li>
+                                <li>C. L'industrialisation rurale</li>
+                            </ul>
+                        </li>
+                        <li><strong>III. Les nouveaux enjeux: conflits d'usage et préservation</strong>
+                            <ul>
+                                <li>A. Les conflits d'usage</li>
+                                <li>B. La question foncière et l'artificialisation</li>
+                                <li>C. La préservation de la biodiversité</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="g-env" class="sub-tab-content">
+                <div class="plan-card">
+                    <h3>🌱 Géographie de l'environnement</h3>
+                    <p><strong>Problématique :</strong> Dans quelle mesure l'hybridation et la dégradation de nos environnements à l'ère de l'Anthropocène révèlent-elles de profondes vulnérabilités socio-spatiales, tout en générant de nouvelles tensions géopolitiques autour de la protection et de l'appropriation du monde ?</p>
+                    <ul>
+                        <li><strong>I. L'ENVIRONNEMENT À L'ÉPREUVE DES CHANGEMENTS GLOBAUX: COMPLEXITÉ ET DÉRÈGLEMENTS CLIMATIQUES</strong>
+                            <ul>
+                                <li>A. Une conceptualisation évolutive: de la nature idéalisée au système hybride</li>
+                                <li>B. Le système climatique terrestre de la variabilité naturelle au forçage anthropique</li>
+                                <li>C. Impacts systémiques et réponses politiques: le défi de l'atténuation et de l'adaptation</li>
+                            </ul>
+                        </li>
+                        <li><strong>II. RISQUES ET PROTECTION DE LA NATURE : LE DILEMME D'UNE GESTION SOUS TENSION</strong>
+                            <ul>
+                                <li>A. La construction sociétale des risques et leur interconnexion</li>
+                                <li>B. Une inégalité fondamentale dans la vulnérabilité face aux catastrophes</li>
+                                <li>C. L'évolution et les paradoxes de la protection environnementale</li>
+                            </ul>
+                        </li>
+                        <li><strong>III. GÉOPOLITIQUE ET JUSTICE ENVIRONNEMENTALE: LA LUTTE POUR L'APPROPRIATION DU GLOBE</strong>
+                            <ul>
+                                <li>A. La course destructrice aux ressources de la mondialisation</li>
+                                <li>B. La "malédiction des matières premières" et l'émergence des conflits</li>
+                                <li>C. L'urgence sociétale: inégalités, assignations spatiales et (in)justice globale</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
         </div>
@@ -820,7 +864,6 @@
         function showSection(sectionId, element) {
             const sections = document.querySelectorAll('.section');
             sections.forEach(sec => sec.classList.remove('active'));
-            
             document.getElementById(sectionId).classList.add('active');
             
             const navBtns = document.querySelectorAll('.nav-btn');
@@ -830,12 +873,15 @@
             window.scrollTo(0, 0);
         }
 
-        // NAVIGATION SOUS-ONGLETS (Page Accueil)
+        // NAVIGATION SOUS-ONGLETS (Plans)
         function showSubTab(tabId, element) {
-            const contents = document.querySelectorAll('.sub-tab-content');
+            // Trouver la section parent pour ne modifier que les onglets de cette section
+            const parentSection = element.closest('.section');
+            
+            const contents = parentSection.querySelectorAll('.sub-tab-content');
             contents.forEach(content => content.classList.remove('active-sub-content'));
             
-            const btns = document.querySelectorAll('.sub-tab-btn');
+            const btns = parentSection.querySelectorAll('.sub-tab-btn');
             btns.forEach(btn => btn.classList.remove('active-sub'));
             
             document.getElementById(tabId).classList.add('active-sub-content');
