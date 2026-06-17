@@ -502,6 +502,137 @@
 }
 .tag-histoire { color: #8e44ad; font-weight: bold; }
 .tag-geo { color: #27ae60; font-weight: bold; }
+
+/* --- STYLES DE LA FRISE --- */
+.timeline-wrapper {
+  font-family: system-ui, -apple-system, sans-serif;
+  max-width: 900px;
+  margin: 2rem auto;
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+#tl {
+  position: relative;
+  margin-bottom: 2rem;
+  padding-top: 30px;
+}
+
+.axis-labels {
+  height: 20px;
+  font-size: 0.8rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.axis-bar {
+  position: relative;
+  height: 2px;
+  background: #cbd5e1;
+  margin-bottom: 15px;
+}
+
+.dynasty-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.dyn-label {
+  width: 120px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #334155;
+  text-align: right;
+  padding-right: 15px;
+  flex-shrink: 0;
+  line-height: 1.2;
+}
+
+.dyn-track {
+  position: relative;
+  flex-grow: 1;
+  height: 30px;
+  background: #e2e8f0;
+  border-radius: 4px;
+}
+
+.dyn-bar {
+  position: absolute;
+  height: 100%;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: filter 0.2s, transform 0.1s;
+  overflow: hidden;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  min-width: 12px;
+}
+
+.dyn-bar:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+.dyn-bar span {
+  font-size: 0.75rem;
+  font-weight: 700;
+  pointer-events: none;
+  padding: 0 4px;
+}
+
+/* --- STYLES DU PANNEAU DE DÉTAILS --- */
+#panel {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+  min-height: 150px;
+}
+
+#panel h3 {
+  margin: 0 0 10px 0;
+  color: #0f172a;
+}
+
+.meta {
+  font-size: 0.9rem;
+  color: #475569;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f1f5f9;
+  line-height: 1.5;
+}
+
+.meta strong {
+  color: #1e293b;
+}
+
+#panel p {
+  color: #334155;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  background: #e2e8f0;
+  color: #475569;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
     </style>
   </head>
   <body>
@@ -1631,6 +1762,14 @@
               </li>
             </ul>
           </div>
+
+          <div class="timeline-wrapper">
+  <div id="tl-fr"></div>
+  <div id="panel-fr">
+    <h3>Sélectionnez un régime</h3>
+    <p>Cliquez sur l'une des barres chronologiques ci-dessus pour découvrir les détails de cette période politique.</p>
+  </div>
+</div>
 
           <div class="plan-card quiz-card" style="display: none">
             <h3>🧠 Quiz Interactif : <span class="quiz-title"></span></h3>
@@ -9447,7 +9586,7 @@
           bar.appendChild(txt);
 
           bar.addEventListener("click", () => {
-            const panel = document.getElementById("panel");
+            const panel = document.getElementById("panel-fr");
             panel.innerHTML = `
                     <h3>${d.name}</h3>
                     <div class="meta">${d.dates} &nbsp;·&nbsp; Capitale : ${d.capital} &nbsp;·&nbsp; Fondateur : ${d.fondateur}</div>
@@ -9505,6 +9644,229 @@
             divResultat.classList.remove('capes-hidden');
         }, 300); 
     }
+
+    document.addEventListener("DOMContentLoaded", () => {
+    
+    // --- BASE DE DONNÉES DES RÉGIMES ---
+    const regimes = [
+      {
+        label: "Monarchie\nConstitut.",
+        color: "#3b82f6", textColor: "#ffffff",
+        start: 1789, end: 1792,
+        name: "Monarchie Constitutionnelle",
+        dates_courtes: "1789 – 1792",
+        dates_exactes: "17 juin 1789 (Assemblée nationale) – 10 août 1792 (Chute de la royauté)",
+        dirigeant: "Louis XVI",
+        resume: "C'est la fin de la monarchie absolue de droit divin. Le roi Louis XVI conserve le pouvoir exécutif, mais partage le pouvoir législatif avec l'Assemblée nationale. La prise des Tuileries le 10 août 1792 signe la suspension des pouvoirs du roi.",
+        tags: ["États généraux", "Prise de la Bastille", "Fuite de Varennes"]
+      },
+      {
+        label: "Ière Rép.",
+        color: "#ef4444", textColor: "#ffffff",
+        start: 1792, end: 1804,
+        name: "Première République",
+        dates_courtes: "1792 – 1804",
+        dates_exactes: "21 septembre 1792 (Abolition de la royauté) – 18 mai 1804 (Sénatus-consulte)",
+        dirigeant: "La Convention, le Directoire, puis Napoléon (Premier Consul)",
+        resume: "Proclamée au lendemain de la victoire de Valmy. Elle connaît trois grandes phases : la Convention (marquée par la Terreur de Robespierre), le Directoire, puis le Consulat instauré par le coup d'État du 18 Brumaire par Napoléon Bonaparte.",
+        tags: ["Mort de Louis XVI", "La Terreur", "Coup d'État de 1799"]
+      },
+      {
+        label: "Ier Empire",
+        color: "#eab308", textColor: "#ffffff",
+        start: 1804, end: 1814,
+        name: "Premier Empire",
+        dates_courtes: "1804 – 1814",
+        dates_exactes: "18 mai 1804 (Proclamation) – 4 avril 1814 (1ère abdication)",
+        dirigeant: "Napoléon Ier",
+        resume: "Régime impérial et autoritaire. Modernisation de l'État (Code Civil, Préfets) et guerres d'expansion en Europe (Austerlitz, Wagram) jusqu'à la désastreuse campagne de Russie qui mène à l'abdication de l'Empereur à Fontainebleau.",
+        tags: ["Sacre (2 déc. 1804)", "Guerres napoléoniennes", "Code Civil"]
+      },
+      {
+        label: "1ère Rest.",
+        color: "#1e3a8a", textColor: "#ffffff",
+        start: 1814, end: 1815,
+        name: "Première Restauration",
+        dates_courtes: "1814 – 1815",
+        dates_exactes: "6 avril 1814 – 20 mars 1815 (Fuite de Louis XVIII)",
+        dirigeant: "Louis XVIII",
+        resume: "Retour de la dynastie des Bourbons. Louis XVIII tente un compromis entre l'Ancien Régime et les acquis de la Révolution avec l'octroi de la Charte de 1814. Le régime est balayé par le retour surprise de Napoléon.",
+        tags: ["Bourbons", "Charte de 1814", "Congrès de Vienne"]
+      },
+      {
+        label: "Cent-Jours",
+        color: "#d97706", textColor: "#ffffff",
+        start: 1815, end: 1815.5, 
+        name: "Les Cent-Jours",
+        dates_courtes: "1815",
+        dates_exactes: "20 mars 1815 (Retour aux Tuileries) – 22 juin 1815 (2ème abdication)",
+        dirigeant: "Napoléon Ier",
+        resume: "De retour de son exil sur l'île d'Elbe, Napoléon remonte vers Paris (le 'Vol de l'Aigle') sans tirer un coup de feu et chasse Louis XVIII. Cette ultime tentative s'achève par la défaite définitive de Waterloo face aux coalisés.",
+        tags: ["Le Vol de l'Aigle", "L'île d'Elbe", "Waterloo"]
+      },
+      {
+        label: "2nde Rest.",
+        color: "#1e3a8a", textColor: "#ffffff",
+        start: 1815.5, end: 1830,
+        name: "Seconde Restauration",
+        dates_courtes: "1815 – 1830",
+        dates_exactes: "8 juillet 1815 (Retour de Louis XVIII) – 2 août 1830 (Abdication de Charles X)",
+        dirigeant: "Louis XVIII puis Charles X",
+        resume: "Après Waterloo, les Bourbons reviennent sur le trône. Si Louis XVIII maintient une politique d'équilibre, son successeur Charles X mène une politique réactionnaire qui finit par provoquer la Révolution de 1830.",
+        tags: ["Terreur blanche", "Charles X", "Ordonnances de Saint-Cloud"]
+      },
+      {
+        label: "Monarchie\nde Juillet",
+        color: "#60a5fa", textColor: "#1e293b",
+        start: 1830, end: 1848,
+        name: "Monarchie de Juillet",
+        dates_courtes: "1830 – 1848",
+        dates_exactes: "9 août 1830 (Serment) – 24 février 1848 (Abdication)",
+        dirigeant: "Louis-Philippe Ier",
+        resume: "Issue de la révolution des Trois Glorieuses. Louis-Philippe prend le titre de 'Roi des Français'. Régime bourgeois axé sur l'industrialisation, qui refuse d'élargir le droit de vote, provoquant une nouvelle révolution.",
+        tags: ["Trois Glorieuses", "Révolution industrielle", "Suffrage censitaire"]
+      },
+      {
+        label: "IIe Rép.",
+        color: "#f87171", textColor: "#ffffff",
+        start: 1848, end: 1852,
+        name: "Deuxième République",
+        dates_courtes: "1848 – 1852",
+        dates_exactes: "24 février 1848 (Proclamation) – 2 décembre 1852 (Proclamation de l'Empire)",
+        dirigeant: "Louis-Napoléon Bonaparte",
+        resume: "Gouvernement provisoire puis élection présidentielle. Période fondatrice : adoption du suffrage universel masculin et abolition définitive de l'esclavage (Schoelcher). Le président Louis-Napoléon s'octroie les pleins pouvoirs par le coup d'État du 2 déc. 1851.",
+        tags: ["Suffrage universel masculin", "Abolition de l'esclavage", "Coup d'État 1851"]
+      },
+      {
+        label: "Second Empire",
+        color: "#ca8a04", textColor: "#ffffff",
+        start: 1852, end: 1870,
+        name: "Second Empire",
+        dates_courtes: "1852 – 1870",
+        dates_exactes: "2 décembre 1852 (Proclamation) – 4 septembre 1870 (Déchéance)",
+        dirigeant: "Napoléon III",
+        resume: "D'abord autoritaire puis libéral, ce régime supervise la transformation économique et urbaine de la France (Haussmann). Il s'effondre brutalement suite à la capture de l'Empereur lors de la guerre franco-prussienne à Sedan.",
+        tags: ["Travaux haussmanniens", "Guerre de Crimée", "Défaite de Sedan"]
+      },
+      {
+        label: "IIIe Rép.",
+        color: "#dc2626", textColor: "#ffffff",
+        start: 1870, end: 1940,
+        name: "Troisième République",
+        dates_courtes: "1870 – 1940",
+        dates_exactes: "4 septembre 1870 (Proclamation) – 10 juillet 1940 (Vote des pleins pouvoirs)",
+        dirigeant: "Régime parlementaire (Présidents du Conseil)",
+        resume: "Née dans la défaite, elle enracine la République en France. C'est l'époque des grandes libertés fondamentales, de l'école gratuite et laïque (1881), de la séparation des Églises et de l'État (1905) et de l'expansion coloniale.",
+        tags: ["École publique", "Loi de 1905", "Affaire Dreyfus", "Première Guerre mondiale"]
+      }
+    ];
+
+    // --- NOUVELLE LOGIQUE : ÉCHELLE DÉFORMÉE ---
+    function getPercent(year) {
+      if (year <= 1870) {
+        // La période de 1785 à 1870 occupe 82% de la largeur totale
+        return ((year - 1785) / (1870 - 1785)) * 82; 
+      } else {
+        // La période de 1870 à 1940 se compresse dans les 18% restants
+        return 82 + ((year - 1870) / (1940 - 1870)) * 18;
+      }
+    }
+
+    function pct(year) {
+      return getPercent(year).toFixed(3) + "%";
+    }
+
+    // Assurez-vous que votre HTML utilise bien id="tl-fr" comme vu précédemment
+    const tl = document.getElementById("tl-fr");
+    if (!tl) return;
+
+    const axisDates = [1789, 1804, 1815, 1830, 1848, 1870, 1900, 1940];
+    
+    // Conteneur des labels (Dates)
+    const axisLabels = document.createElement("div");
+    axisLabels.className = "axis-labels";
+    axisLabels.style.position = "relative";
+    
+    axisDates.forEach((d) => {
+      const s = document.createElement("span");
+      s.textContent = d;
+      s.style.position = "absolute";
+      s.style.left = pct(d);
+      s.style.transform = "translateX(-50%)";
+      axisLabels.appendChild(s);
+    });
+    tl.appendChild(axisLabels);
+
+    // Ligne et repères visuels (Ticks)
+    const axisBar = document.createElement("div");
+    axisBar.className = "axis-bar";
+    axisDates.forEach((d) => {
+      const tick = document.createElement("div");
+      tick.style.cssText = `position:absolute;left:${pct(d)};top:-4px;width:2px;height:10px;background:#94a3b8;`;
+      axisBar.appendChild(tick);
+    });
+    tl.appendChild(axisBar);
+
+    // Dessin des barres de régimes
+    regimes.forEach((d) => {
+      const row = document.createElement("div");
+      row.className = "dynasty-row";
+
+      const lbl = document.createElement("div");
+      lbl.className = "dyn-label";
+      lbl.style.whiteSpace = "pre-line";
+      lbl.textContent = d.label;
+      row.appendChild(lbl);
+
+      const track = document.createElement("div");
+      track.className = "dyn-track";
+
+      // On calcule les positions avec notre nouvelle échelle déformée
+      const leftPct = getPercent(d.start);
+      const rightPct = getPercent(d.end);
+
+      const bar = document.createElement("div");
+      bar.className = "dyn-bar";
+      bar.style.left = leftPct + "%";
+      bar.style.width = (rightPct - leftPct) + "%";
+      bar.style.background = d.color;
+      bar.setAttribute("role", "button");
+      bar.setAttribute("tabindex", "0");
+
+      const txt = document.createElement("span");
+      txt.style.color = d.textColor;
+      // Afficher le texte uniquement si la largeur visuelle le permet (plus de 4%)
+      if ((rightPct - leftPct) > 4) {
+          txt.textContent = d.dates_courtes;
+      }
+      bar.appendChild(txt);
+
+      // Clic et mise à jour du panneau
+      bar.addEventListener("click", () => {
+        // Assurez-vous que votre HTML utilise bien id="panel-fr"
+        const panel = document.getElementById("panel-fr");
+        panel.innerHTML = `
+          <h3>${d.name}</h3>
+          <div class="meta">
+            <strong>Période exacte</strong> : ${d.dates_exactes} <br>
+            <strong>Dirigeant(s)</strong> : ${d.dirigeant}
+          </div>
+          <p>${d.resume}</p>
+          <div class="tags">${d.tags.map((t) => `<span class="tag">${t}</span>`).join("")}</div>
+        `;
+        
+        panel.style.opacity = 0;
+        setTimeout(() => {
+          panel.style.transition = "opacity 0.3s ease-in-out";
+          panel.style.opacity = 1;
+        }, 10);
+      });
+
+      track.appendChild(bar);
+      row.appendChild(track);
+      tl.appendChild(row);
+    });
+  });
     </script>
   </body>
 </html>
