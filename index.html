@@ -3309,7 +3309,6 @@
     {"q": "Qu'est-ce que le 'Galeón de Manila' ?", "a": "Une route commerciale espagnole reliant Manille (Philippines) à Acapulco (Mexique), connectant l'Asie aux Amériques."},
     {"q": "Comment l'afflux d'or et d'argent américains affecte-t-il l'économie européenne au XVIe siècle ?", "a": "Il provoque une inflation majeure, connue sous le nom de 'révolution des prix' (théorisée par Jean Bodin)."},
     {"q": "Pourquoi parle-t-on d'une 'première mondialisation' balbutiante et non aboutie ?", "a": "Parce que les échanges intercontinentaux restent limités en volume et ne touchent qu'une fraction des économies et des populations locales."},
-    {"q": "Comment appelle-t-on la mesure prise par Napoléon en 1806 pour ruiner l'économie britannique ?", "a": "Le Blocus continental."},
     {"q": "Quel banquier écossais est à l'origine d'une faillite financière retentissante en France en 1720 ?", "a": "John Law."},
     {"q": "Quelle fut la principale conséquence de la « Révolution financière » du début du XVIIIe siècle ?", "a": "L'essor du papier monnaie et des sociétés par actions."},
     {"q": "Quel terme désigne le mouvement de clôture des terres communales en Angleterre au XVIIIe siècle ?", "a": "Les enclosures."},
@@ -3333,6 +3332,7 @@
     {"q": "Quel savant italien découvre la circulation sanguine complète au XVIIe siècle ?", "a": "William Harvey."},
     {"q": "Quel inventeur perfectionne la machine à vapeur en 1774, lançant la révolution industrielle ?", "a": "James Watt."},
     {"q": "Quelle doctrine économique soutient que la richesse d'une nation provient essentiellement de l'agriculture ?", "a": "La physiocratie (ex: Quesnay)."},
+    {"q": "Quelle doctrine économique soutient que la richesse d'une nation provient essentiellement du développement économique par le commerce exterieur?", "a": "Le mercantilisme (ex: Colbert)."},
     {"q": "Comment appelle-t-on les « cabinets » exposant des collections de curiosités naturelles et scientifiques ?", "a": "Les cabinets de curiosité."},
     {"q": "Quelle est l'innovation majeure de Gérard Mercator en 1569 concernant la cartographie ?", "a": "La projection cylindrique (projection de Mercator), qui conserve les angles et facilite la navigation."},
     {"q": "Qui est considéré comme le père de la chirurgie moderne, remplaçant la cautérisation par la ligature des artères ?", "a": "Ambroise Paré."},
@@ -3408,6 +3408,7 @@
     "q": "Qu'est-ce que la physiocratie, courant fondé par François Quesnay ?",
     "a": "Une théorie économique stipulant que la richesse d'un pays réside essentiellement dans sa production agricole, incitant à la libéralisation du commerce des grains."
   },
+  {"q": "Quelle doctrine économique soutient que la richesse d'une nation provient essentiellement du développement économique par le commerce exterieur?", "a": "Le mercantilisme (ex: Colbert)."},
   {
     "q": "Qu'est-ce que la « réaction nobiliaire » de la fin du XVIIIe siècle ?",
     "a": "C'est le mouvement par lequel la noblesse monopolise les hauts grades militaires (édit de Ségur de 1781) et réactive d'anciens droits seigneuriaux."
@@ -5736,53 +5737,1215 @@
   }
 ],
             'g-mond': [
-                {"q": "Comment définit-on la mondialisation ?", "a": "L'intensification des flux (marchandises, capitaux, informations, personnes) créant un espace mondial de plus en plus interdépendant."},
-                {"q": "Quels sont les principaux acteurs économiques de la mondialisation, opérant dans plusieurs pays ?", "a": "Les Firmes Transnationales (FTN)."},
-                {"q": "Quel processus logistique, basé sur l'utilisation de boîtes standardisées, a révolutionné le transport maritime ?", "a": "La conteneurisation."},
-                {"q": "Comment nomme-t-on la division des étapes de production d'un bien entre différents pays pour minimiser les coûts ?", "a": "La Division Internationale des Processus Productifs (DIPP)."},
-                {"q": "Quels espaces concentrent l'essentiel des flux mondiaux et constituent les centres d'impulsion de la mondialisation ?", "a": "Les villes mondiales et les grandes façades maritimes."},
-                {"q": "Comment nomme-t-on les pays du Sud connaissant une forte croissance économique et s'intégrant rapidement à la mondialisation (ex: BRICS) ?", "a": "Les pays émergents."},
-                {"q": "Qu'est-ce qu'une zone franche ?", "a": "Un espace géographique délimité offrant des avantages fiscaux et douaniers pour attirer les investissements étrangers."},
-                {"q": "Quel terme qualifie les territoires qui restent à l'écart des grands flux mondiaux ?", "a": "Les marges (ou angles morts) de la mondialisation."},
-                {"q": "Quelle organisation internationale a pour rôle de fixer les règles du libre-échange et de régler les litiges commerciaux ?", "a": "L'Organisation Mondiale du Commerce (OMC)."},
-                {"q": "Comment désigne-t-on le réseau de télécommunication mondial, épine dorsale de la mondialisation de l'information ?", "a": "Internet (et le réseau de câbles sous-marins)."}
-            ],
+  {
+    "q": "﻿Comment définit-on un flux en géographie ?",
+    "a": "C'est l'écoulement ou le transfert d'une quantité (personnes, marchandises, informations) suivant un axe ou un réseau."
+  },
+  {
+    "q": "Selon Françoise Bahoken, quelle est la différence entre un flux et un mouvement ?",
+    "a": "Le flux est un déplacement de A à B sans contrainte spatiale (quantité), tandis que le mouvement respecte l'itinéraire dans l'espace euclidien."
+  },
+  {
+    "q": "Quels sont les deux paramètres nécessaires pour mesurer un flux ?",
+    "a": "La quantité transportée et la distance franchie (passagers/km ou tonnes/km)."
+  },
+  {
+    "q": "Définition : Débit",
+    "a": "C'est la quantité transportée rapportée à une unité de temps (ex: mégabits/seconde ou véhicules/heure)."
+  },
+  {
+    "q": "Qu'est-ce que le « trafic induit » dans un réseau ?",
+    "a": "C'est un flux généré directement par la performance et la présence de nouvelles infrastructures (transport rapide et bon marché)."
+  },
+  {
+    "q": "Expliquez le paradoxe de Braess (ou « effet siphon ») appliqué aux infrastructures.",
+    "a": "Une nouvelle infrastructure peut ne fluidifier la circulation que temporairement avant d'être saturée par son propre succès."
+  },
+  {
+    "q": "Concept : Flux tendus (Juste-à-temps)",
+    "a": "Organisation logistique consistant à s'approvisionner et produire selon la demande connue, réduisant ainsi les stocks au minimum."
+  },
+  {
+    "q": "Quelle est la définition stricte de la maritimisation ?",
+    "a": "C'est le processus d'accroissement des échanges internationaux par voie maritime, s'accélérant depuis les années 1970."
+  },
+  {
+    "q": "Quels sont les deux outils techniques décisifs de la révolution du transport maritime ?",
+    "a": "Le gigantisme des navires et l'invention du conteneur."
+  },
+  {
+    "q": "Comment la maritimisation se distingue-t-elle de la littoralisation ?",
+    "a": "La maritimisation se lit à l'échelle mondiale et insiste sur les avant-pays (routes, ressources offshore) plutôt que sur l'arrière-pays."
+  },
+  {
+    "q": "Qu'est-ce que le « merritoire » (ou Amazonie bleue) au Brésil ?",
+    "a": "C'est l'appropriation culturelle et symbolique de l'espace maritime par une société terrestre."
+  },
+  {
+    "q": "Définition : Démaritimisation",
+    "a": "Phénomène de déclin ou de diversification économique des villes-ports, illustré par certains ports d'Europe du Nord-Ouest."
+  },
+  {
+    "q": "Pourquoi le système de la mondialisation est-il qualifié d'asymétrique ?",
+    "a": "Car les rapports sont inégaux entre les centres d'impulsion hégémoniques et les espaces périphériques dominés ou délaissés."
+  },
+  {
+    "q": "Quelle proportion de la capitalisation boursière mondiale est polarisée par seulement 10 places financières ?",
+    "a": "Elle représente environ $80\\%$ de la capitalisation boursière mondiale."
+  },
+  {
+    "q": "Selon Michel Foucher, qu'est-ce que la « grande émancipation » ?",
+    "a": "C'est la perte du monopole mondial de la puissance par les pays occidentaux au profit d'une structure polycentrique."
+  },
+  {
+    "q": "Dans le système mondial, quel rôle jouent les zones franches et les paradis fiscaux ?",
+    "a": "Ils servent d'espaces de non-droits juridiques, réglementaires ou sociaux nécessaires au fonctionnement du système."
+  },
+  {
+    "q": "Quelle est la différence sémantique entre « multinationale » et « transnationale » selon l'auteur ?",
+    "a": "Le terme transnationale est préféré car ces firmes conservent généralement un fort ancrage dans leur base nationale stratégique."
+  },
+  {
+    "q": "Quel événement historique a invalidé les attaques libérales contre l'État dans les années 2000 ?",
+    "a": "La crise financière de 2008, qui a nécessité une intervention massive des États pour sauver le système financier."
+  },
+  {
+    "q": "Concept : Biens publics mondiaux",
+    "a": "Ressources non divisibles (eau, air, climat) devant échapper aux lois du marché pour une gestion durable non marchande."
+  },
+  {
+    "q": "Comment la notion de « ressource » est-elle définie dynamiquement ?",
+    "a": "C'est une construction technologique et économique datée (ex: le lithium devient une ressource avec la voiture électrique)."
+  },
+  {
+    "q": "Pourquoi la pêche mondiale est-elle qualifiée de « logique prédatrice » ?",
+    "a": "Parce que $70\\%$ des stocks mondiaux sont soit épuisés, soit en surexploitation, menaçant la reconstitution des réserves."
+  },
+  {
+    "q": "Quel pourcentage de la surface des mers fournit $90\\%$ des prélèvements halieutiques ?",
+    "a": "Les plateformes continentales, qui représentent seulement $10\\%$ de la surface des mers."
+  },
+  {
+    "q": "Quelle a été la conséquence de la création de l'OPEP en 1960 ?",
+    "a": "Briser le monopole du cartel des « Sept Sœurs » occidentales pour obtenir une plus juste rémunération du pétrole."
+  },
+  {
+    "q": "Qu'est-ce que la « reprimarisation » de l'économie ?",
+    "a": "C'est le fait pour un pays de se ré-enfermer dans une spécialisation d'exportation de produits de base au détriment de l'industrie."
+  },
+  {
+    "q": "Pourquoi les cultures de drogue (héroïne, cocaïne) persistent-elles malgré les programmes d'arrachage ?",
+    "a": "Elles sont souvent les seules productions dégageant un surplus de revenu vital pour les paysanneries pauvres."
+  },
+  {
+    "q": "Quel est le pouvoir de la grande distribution sur le prix final d'un produit agricole ?",
+    "a": "Elle capte environ $48\\%$ du prix final, contre seulement $6,5\\%$ pour le producteur."
+  },
+  {
+    "q": "Quel est l'objectif principal du « commerce équitable » (ex: Max Havelaar) ?",
+    "a": "Assurer un prix minimum garanti rémunérateur aux petits producteurs des Suds et une traçabilité pour les consommateurs."
+  },
+  {
+    "q": "Comment l'activité minière crée-t-elle des « espaces-mosaïques » ?",
+    "a": "Par la création d'enclaves de production prédatrices peu intégrées au reste de l'économie nationale."
+  },
+  {
+    "q": "Qu'est-ce que le lien « symbiotique » dans le secteur pétrolier ?",
+    "a": "L'étroite association entre les intérêts géopolitiques d'un État et les intérêts géoéconomiques de sa firme nationale (Majors)."
+  },
+  {
+    "q": "Quelle est la particularité du groupe pétrolier Total concernant ses investissements ?",
+    "a": "Bien que d'origine française, la France ne reçoit plus que $5\\%$ de ses investissements totaux."
+  },
+  {
+    "q": "Pourquoi la Chine investit-elle massivement dans le détroit de Malacca et à Djibouti ?",
+    "a": "Pour sécuriser ses routes maritimes d'approvisionnement énergétique, dont $80\\%$ passent par Malacca."
+  },
+  {
+    "q": "Définition : Nouveau nationalisme minier",
+    "a": "Tendance des États (Indonésie, RDC) à durcir les codes miniers et la fiscalité pour capter une plus grande part de la rente."
+  },
+  {
+    "q": "Quel pays est le premier consommateur mondial d'énergie en $2017$ ?",
+    "a": "La Chine, avec $23\\%$ de la consommation mondiale, devant les États-Unis ($16,5\\%$)."
+  },
+  {
+    "q": "Selon Pierre Veltz, quel terme décrit le mieux notre société contemporaine ?",
+    "a": "Un monde « hyperindustriel », où l'industrie est au cœur du système malgré les idées reçues sur la désindustrialisation."
+  },
+  {
+    "q": "Quelle région du monde a polarisé $62\\%$ de la croissance industrielle mondiale entre $2005$ et $2017$ ?",
+    "a": "L'Asie de l'Est."
+  },
+  {
+    "q": "Qu'est-ce que la « métropolisation » du système productif ?",
+    "a": "C'est la concentration des fonctions de commandement et des emplois stratégiques dans les très grandes villes interconnectées."
+  },
+  {
+    "q": "Pourquoi la Silicon Valley est-elle considérée comme un territoire d'innovation mondial ?",
+    "a": "Elle combine sièges sociaux, laboratoires, capital-risque et une population dont $40\\%$ est née à l'étranger."
+  },
+  {
+    "q": "Concept : Fabless company (entreprise sans usines)",
+    "a": "Firme comme Nike qui externalise totalement la fabrication pour se concentrer sur le design, la recherche et le marketing."
+  },
+  {
+    "q": "Où sont localisés $90\\%$ des emplois de fabrication des sous-traitants de Nike ?",
+    "a": "En Asie de l'Est et du Sud-Est (notamment Vietnam, Indonésie et Chine)."
+  },
+  {
+    "q": "Quel groupe taïwanais est le géant mondial de la sous-traitance pour les chaussures de sport ?",
+    "a": "Le groupe Pou Chen, qui contrôle $20\\%$ du marché mondial."
+  },
+  {
+    "q": "Comment définit-on un « territoire » par rapport à l'espace ?",
+    "a": "C'est une portion d'espace appropriée, occupée et valorisée sur la longue durée par une société ou un État."
+  },
+  {
+    "q": "Quel pourcentage de la richesse mondiale est détenu par moins de $1\\%$ de la population ?",
+    "a": "Ce groupe restreint accapare $45\\%$ de la richesse mondiale."
+  },
+  {
+    "q": "Quel est le paradoxe de la consommation mondiale concernant Starbucks ?",
+    "a": "Malgré une image globale, la firme doit adapter ses produits aux goûts locaux (ex: thé en Asie, design spécifique par ville)."
+  },
+  {
+    "q": "Pourquoi le marché de la citoyenneté (vente de passeports) s'est-il développé ?",
+    "a": "C'est une marchandisation de la souveraineté par des micro-États (ex: Malte, Antigua) pour s'insérer dans la mondialisation."
+  },
+  {
+    "q": "Quelles sont les « trois Russies » identifiées par Denis Eckert ?",
+    "a": "Les métropoles dynamiques (Moscou/St-Pétersbourg), la Russie provinciale et les périphéries profondes isolées."
+  },
+  {
+    "q": "Qu'est-ce qu'une Zone Industrialo-Portuaire (ZIP) ?",
+    "a": "Un espace associant des activités portuaires et industrielles lourdes (ex: Dunkerque, Fos-sur-mer)."
+  },
+  {
+    "q": "Pourquoi le modèle de la « transmigration » a-t-il été mis en place en Indonésie ?",
+    "a": "Pour désengorger l'île surpeuplée de Java vers les îles périphériques sous-peuplées et intégrer le territoire."
+  },
+  {
+    "q": "Quel est l'impact environnemental majeur de l'exploitation capitaliste en Indonésie ?",
+    "a": "Une déforestation massive pour les plantations d'huile de palme et les concessions minières."
+  },
+  {
+    "q": "Définition : Maquiladoras",
+    "a": "Usines de montage mexicaines bénéficiant d'avantages fiscaux, utilisant une main-d'œuvre bon marché pour réexporter vers les États-Unis."
+  },
+  {
+    "q": "Pourquoi l'État centrafricain est-il qualifié d'État « failli » ?",
+    "a": "En raison de l'effondrement de ses structures, de la prédation des ressources par des groupes armés et de l'insécurité généralisée."
+  },
+  {
+    "q": "Qu'est-ce que l'Archipel Mégalopolitain Mondial (AMM) selon Olivier Dollfus ?",
+    "a": "C'est le réseau des très grandes métropoles mondiales qui dirigent l'économie mondiale en étant connectées entre elles."
+  },
+  {
+    "q": "Quel est le poids économique des 300 premières métropoles mondiales ?",
+    "a": "Elles réalisent $50\\%$ du PIB mondial avec seulement $23\\%$ de la population."
+  },
+  {
+    "q": "Pourquoi certains mouvements autonomistes émergent-ils dans des régions riches (ex: Catalogne, Flandre) ?",
+    "a": "Ces régions refusent de plus en plus la solidarité financière nationale au profit d'une insertion directe dans la mondialisation."
+  },
+  {
+    "q": "Comment l'Indonésie gère-t-elle sa diversité religieuse et ethnique ?",
+    "a": "À travers la devise « L'unité dans la diversité » et l'imposition d'une langue commune, malgré les tensions islamistes."
+  },
+  {
+    "q": "Quelle est la principale critique faite au concept de « ville globale » ?",
+    "a": "Elle tend à désolidariser la métropole de son arrière-pays national, qui est pourtant la base de son rayonnement."
+  },
+  {
+    "q": "Pourquoi le Mexique est-il considéré comme une « annexe productive » des États-Unis ?",
+    "a": "À cause de sa dépendance extrême aux flux commerciaux ($80\\%$), aux IDE ($45\\%$) et au modèle des maquiladoras."
+  }
+],
             'g-geopol': [
-                {"q": "Selon les géopolitologues classiques (comme Ratzel), sur quoi repose traditionnellement la puissance d'un État ?", "a": "Sur le contrôle et la maîtrise de son territoire (la puissance territoriale)."},
-                {"q": "Comment Joseph Nye définit-il le 'Soft Power' ?", "a": "La capacité d'un État à influencer le comportement d'autres acteurs par la persuasion, la culture ou les valeurs, sans coercition."},
-                {"q": "Comment nomme-t-on un conflit qui oppose un État puissant à des groupes armés irréguliers (guérillas, terroristes) ?", "a": "Un conflit asymétrique."},
-                {"q": "Quel terme qualifie les nouvelles formes de guerre mêlant opérations militaires classiques, cyberattaques et désinformation ?", "a": "La guerre hybride."},
-                {"q": "Comment appelle-t-on le processus de renforcement, de matérialisation et parfois de fermeture des frontières dans le monde contemporain ?", "a": "La teichopolitique (ou le retour des murs / la 're-frontiérisation')."},
-                {"q": "Quel espace, de plus en plus libre de glaces, devient un nouvel enjeu géopolitique et économique majeur ?", "a": "L'Arctique."},
-                {"q": "Quel concept désigne la dépendance croissante des économies et des États vis-à-vis des espaces maritimes ?", "a": "La maritimisation."},
-                {"q": "Comment s'appelle l'espace virtuel, immatériel, devenu un nouveau domaine de conflictualité et d'espionnage ?", "a": "Le cyberespace."},
-                {"q": "Qu'est-ce qu'une ZEE (Zone Économique Exclusive) ?", "a": "Un espace maritime sur lequel un État côtier exerce des droits souverains d'exploration et d'exploitation des ressources (jusqu'à 200 milles marins)."},
-                {"q": "Quel terme désigne un État incapable d'assurer ses fonctions régaliennes fondamentales (sécurité, justice, services de base) ?", "a": "Un État failli (failed state)."}
-            ],
+  {
+    "q": "﻿Quelle est la distinction épistémologique classique faite au sein de la géographie ?",
+    "a": "La distinction entre géographie physique et géographie humaine."
+  },
+  {
+    "q": "Comment la géographie politique appréhende-t-elle ses objets d'étude ?",
+    "a": "Sous un angle spatial (États, frontières, conflits, maillages administratifs)."
+  },
+  {
+    "q": "Quel est le point commun de tous les objets d'étude de la géographie politique ?",
+    "a": "Leur lien avec l'aspect politique, plus précisément le pouvoir."
+  },
+  {
+    "q": "Quels sont les premiers marqueurs religieux et funéraires délimitant un espace tribal à la Préhistoire ?",
+    "a": "Les monuments à caractère religieux et funéraire."
+  },
+  {
+    "q": "À quelle période apparaissent les premiers peuplements permanents et la sédentarisation ?",
+    "a": "À la fin de la préhistoire, au Néolithique, commençant au Proche-Orient."
+  },
+  {
+    "q": "Quelle structure défensive de Jéricho daterait de $8000$ à $9000$ ans avant notre ère ?",
+    "a": "La Tour de Jéricho."
+  },
+  {
+    "q": "Quelle était la limite de population idéale pour une cité selon Platon ?",
+    "a": "$5040$ citoyens."
+  },
+  {
+    "q": "Pourquoi Aristote s'opposait-il aux cités de taille immense comme Babylone ?",
+    "a": "Car l'information (comme une prise de ville) mettait trop de temps à parvenir à tous les habitants."
+  },
+  {
+    "q": "Quel auteur a publié l'ouvrage « Le Prince » en $1532$ ?",
+    "a": "Nicolas Machiavel."
+  },
+  {
+    "q": "Qui a forgé le substantif « géopolitique » en $1905$ ?",
+    "a": "Rudolf Kjellén."
+  },
+  {
+    "q": "Qui est considéré comme le père de la géographie politique contemporaine avec son ouvrage de $1897$ ?",
+    "a": "Friedrich Ratzel."
+  },
+  {
+    "q": "Quelle théorie scientifique a influencé la conception « organiciste » de l'État chez Ratzel ?",
+    "a": "Le darwinisme (darwinisme social appliqué à l'État)."
+  },
+  {
+    "q": "Comment Ratzel définit-il l'évolution d'un État selon sa conception organiciste ?",
+    "a": "Comme un être vivant qui naîtrait, aurait des besoins, grandirait et mourrait."
+  },
+  {
+    "q": "Quel concept de Ratzel oppose les peuples « primitifs » aux peuples « civilisés » ?",
+    "a": "L'opposition entre les Naturvölker (peuples de nature) et les Kulturvölker (peuples de culture)."
+  },
+  {
+    "q": "Quel mouvement politique prônant une « Grande Allemagne » a été justifié par les écrits de Ratzel ?",
+    "a": "Le pangermanisme."
+  },
+  {
+    "q": "Quel géopolitologue allemand a approfondi le concept de « Lebensraum » (espace vital) ?",
+    "a": "Karl Haushofer."
+  },
+  {
+    "q": "Quel auteur français s'est opposé aux théories de Haushofer dans son ouvrage « Géopolitique » ($1936$) ?",
+    "a": "Jacques Ancel."
+  },
+  {
+    "q": "Qui a posé les bases de la géographie électorale française en $1913$ ?",
+    "a": "André Siegfried."
+  },
+  {
+    "q": "Quelle est la thèse célèbre d'André Siegfried résumant le lien entre géologie et vote ?",
+    "a": "« Le granite vote à droite, le calcaire vote à gauche »."
+  },
+  {
+    "q": "Quel géographe a inventé le concept de « Mégalopolis » ?",
+    "a": "Jean Gottmann."
+  },
+  {
+    "q": "Quelle revue, fondée par Yves Lacoste en $1976$, a relancé l'intérêt pour la géopolitique en France ?",
+    "a": "La revue Hérodote."
+  },
+  {
+    "q": "Quelle phrase provocatrice d'Yves Lacoste définit l'utilité première de la géographie ?",
+    "a": "« La géographie, ça sert, d'abord, à faire la guerre »."
+  },
+  {
+    "q": "Quelle distinction certains chercheurs font-ils entre la « géopolitique » et la « géographie politique » ?",
+    "a": "La géopolitique désigne l'action (État), tandis que la géographie politique désigne la discipline scientifique."
+  },
+  {
+    "q": "Quelle école de géopolitique française est associée à l'Institut Français de Géopolitique (IFG) ?",
+    "a": "L'école de Paris VIII (fondée par Yves Lacoste)."
+  },
+  {
+    "q": "Quel auteur est la figure centrale de l'école de géographie politique de Paris IV Sorbonne ?",
+    "a": "Paul Claval."
+  },
+  {
+    "q": "Quel géographe est connu pour son expertise sur les frontières et son ouvrage « Fronts et frontières » ($1988$) ?",
+    "a": "Michel Foucher."
+  },
+  {
+    "q": "Quelle thèse Francis Fukuyama a-t-il développée en $1989$ ?",
+    "a": "La thèse de « La fin de l'histoire »."
+  },
+  {
+    "q": "Quel auteur a théorisé « Le choc des civilisations » en $1994$ ?",
+    "a": "Samuel Huntington."
+  },
+  {
+    "q": "Qui est l'auteur de l'ouvrage « Le grand échiquier » ($1997$) ?",
+    "a": "Zbigniew Brzezinski."
+  },
+  {
+    "q": "Selon Mackinder, quel espace géographique permet de dominer le monde si on le contrôle ?",
+    "a": "Le Heartland (pivot mondial situé en Eurasie)."
+  },
+  {
+    "q": "Quel concept Nicholas Spykman a-t-il opposé au Heartland de Mackinder ?",
+    "a": "Le Rimland (anneau périphérique maritime)."
+  },
+  {
+    "q": "Quel philosophe a proposé une partition binaire du monde entre les « États de la peur » et les « États du ressentiment » ?",
+    "a": "Tzvetan Todorov."
+  },
+  {
+    "q": "Quels sont les deux seuls espaces terrestres qui échappent à la souveraineté étatique ?",
+    "a": "La haute mer et l'Antarctique."
+  },
+  {
+    "q": "Quelle expression Michel Foucher utilise-t-il pour souligner la nécessité des frontières ?",
+    "a": "« Pour être vivable, notre monde a besoin de frontières »."
+  },
+  {
+    "q": "Qu'est-ce que la « limologie » ?",
+    "a": "L'étude géographique des frontières (du latin limes)."
+  },
+  {
+    "q": "Quel terme désigne la multiplication des dispositifs de cloisonnement de l'espace (murs, barrières) ?",
+    "a": "La teichopolitique."
+  },
+  {
+    "q": "En quelle année les accords de Schengen ont-ils été signés ?",
+    "a": "$1985$ (complétés en $1990$)."
+  },
+  {
+    "q": "Quelles sont les « quatre libertés » associées au marché unique européen ?",
+    "a": "La libre circulation des biens, des personnes, des services et des capitaux."
+  },
+  {
+    "q": "Comment Raymond Aron définit-il la puissance de manière générale ?",
+    "a": "« La capacité de faire, produire ou détruire »."
+  },
+  {
+    "q": "Quel amiral américain a théorisé l'importance du « Sea Power » ($1890$) ?",
+    "a": "Alfred Mahan."
+  },
+  {
+    "q": "Selon l'approche réaliste, quel est le critère d'excellence de la puissance d'un État ?",
+    "a": "La force armée (militaire)."
+  },
+  {
+    "q": "Quelle puissance nucléaire ne fait pas partie des $5$ membres permanents du Conseil de sécurité de l'ONU ?",
+    "a": "L'Inde (ou le Pakistan, Israël, la Corée du Nord)."
+  },
+  {
+    "q": "Comment appelle-t-on la situation où la possession d'abondantes ressources naturelles nuit au développement d'un État ?",
+    "a": "La « malédiction des matières premières »."
+  },
+  {
+    "q": "Quel auteur a théorisé le « Soft Power » ?",
+    "a": "Joseph Nye."
+  },
+  {
+    "q": "Définition : Soft Power",
+    "a": "La capacité d'influence d'un État par la persuasion, la séduction et l'attraction culturelle ou idéologique."
+  },
+  {
+    "q": "Qu'est-ce que le « Smart Power » ?",
+    "a": "La combinaison stratégique du hard power (force) et du soft power (influence)."
+  },
+  {
+    "q": "Quel terme désigne le pouvoir de diviser l'adversaire par la désinformation et la manipulation de l'information ?",
+    "a": "Le Sharp Power."
+  },
+  {
+    "q": "Quelle est la thèse centrale de Paul Kennedy dans « Naissance et déclin des grandes puissances » ?",
+    "a": "Le déclin des empires est lié à la « surextension impériale » (imperial overstretch)."
+  },
+  {
+    "q": "Quel programme chinois vise à rattraper le retard technologique d'ici $2025$ ?",
+    "a": "Made in China $2025$."
+  },
+  {
+    "q": "Quel projet d'infrastructure massif a été lancé par Xi Jinping en $2013$ ?",
+    "a": "Les « Nouvelles routes de la soie »."
+  },
+  {
+    "q": "Comment Zaki Laïdi définit-il la puissance de l'Europe ?",
+    "a": "Comme une « puissance normative » (la norme sans la force)."
+  },
+  {
+    "q": "Quelle formule de Clausewitz définit la guerre ?",
+    "a": "« Une continuation de la politique par d'autres moyens »."
+  },
+  {
+    "q": "Quel traité de $1648$ a mis fin à la guerre de Trente Ans et défini l'État souverain ?",
+    "a": "Le traité de Westphalie."
+  },
+  {
+    "q": "Quelle période de paix imposée par Rome s'étend du début du règne d'Auguste pendant deux siècles ?",
+    "a": "La Pax Romana."
+  },
+  {
+    "q": "Quel concept désigne la domination mondiale britannique basée sur la thalassocratie au $XIX^{e}$ siècle ?",
+    "a": "La Pax Britannica."
+  },
+  {
+    "q": "Quelle organisation internationale, ancêtre de l'ONU, a été créée après la Première Guerre mondiale ?",
+    "a": "La Société des Nations (SDN)."
+  },
+  {
+    "q": "Qui sont les « Casques bleus » ?",
+    "a": "Les forces de maintien de la paix de l'ONU."
+  },
+  {
+    "q": "Quelle est la particularité des guerres asymétriques ?",
+    "a": "Elles opposent des acteurs de puissance très inégale (ex: État contre groupe terroriste)."
+  },
+  {
+    "q": "Quel pays a utilisé la « grande muraille numérique » pour contrôler l'information ?",
+    "a": "La Chine."
+  },
+  {
+    "q": "Quel conflit de $1990$-$1991$ a marqué le début de l'ordre unipolaire américain ?",
+    "a": "La guerre du Golfe."
+  },
+  {
+    "q": "En quelle année ont eu lieu les attentats terroristes marquant la fin de l'optimisme de la « fin de l'histoire » ?",
+    "a": "$2001$ ($11$ septembre)."
+  },
+  {
+    "q": "Quel concept de Christian Harbulot définit la survie d'un pays par la recherche et la maîtrise des ressources ?",
+    "a": "La guerre économique."
+  },
+  {
+    "q": "Quel indice classe les pays selon leur capacité d'innovation ?",
+    "a": "Le Global Innovation Index (GII)."
+  },
+  {
+    "q": "Selon le document, quel pays occupe la première place des dépenses militaires mondiales en $2024$ ?",
+    "a": "Les États-Unis."
+  },
+  {
+    "q": "Quel terme désigne l'utilisation de la géographie pour l'aménagement du territoire au service du pouvoir ?",
+    "a": "La géographie appliquée."
+  },
+  {
+    "q": "Qui est l'auteur de l'essai « La Géographie, ça sert, d'abord, à faire la guerre » ?",
+    "a": "Yves Lacoste."
+  },
+  {
+    "q": "Quel était le but de l'Opération Walkyrie le $20$ juillet $1944$ ?",
+    "a": "Assassiner Adolf Hitler."
+  },
+  {
+    "q": "Quel concept de Haushofer a servi à légitimer l'expansionnisme nazi ?",
+    "a": "Le Lebensraum (espace vital)."
+  },
+  {
+    "q": "Quelle est la principale différence entre la SDN et l'ONU concernant l'usage de la force ?",
+    "a": "L'ONU dispose d'un Conseil de sécurité pouvant autoriser des interventions militaires."
+  },
+  {
+    "q": "Quel géographe français a étudié le lien entre le sol (granite/calcaire) et les structures sociales ?",
+    "a": "André Siegfried."
+  },
+  {
+    "q": "Quelle est la fonction première d'un mur dans la « teichopolitique » ?",
+    "a": "Le cloisonnement de l'espace pour empêcher le passage."
+  },
+  {
+    "q": "Que désigne le terme « balkanisation » ?",
+    "a": "Le morcellement d'un État en plusieurs unités plus petites et souvent hostiles."
+  },
+  {
+    "q": "Qui a théorisé l'idée que « la démographie, c'est le destin » ?",
+    "a": "Auguste Comte."
+  },
+  {
+    "q": "Quel indicateur mesure la richesse produite par un pays sur une année ?",
+    "a": "Le PIB (Produit Intérieur Brut)."
+  },
+  {
+    "q": "Quel pays a annexé la Crimée en $2014$ ?",
+    "a": "La Russie."
+  },
+  {
+    "q": "Quel est l'objectif du projet « Made in China $2025$ » ?",
+    "a": "Atteindre l'autonomie technologique et devenir une puissance industrielle de pointe."
+  },
+  {
+    "q": "Quel détroit est vital pour le commerce mondial et le contrôle maritime de l'Asie ?",
+    "a": "Le détroit de Malacca."
+  },
+  {
+    "q": "Quel pays est souvent qualifié de « pivot » de l'Europe selon les théories de Mackinder ?",
+    "a": "L'Allemagne (ou la zone du Heartland en général)."
+  },
+  {
+    "q": "Qui a écrit « Le choc des civilisations » en réponse à Fukuyama ?",
+    "a": "Samuel Huntington."
+  },
+  {
+    "q": "Quel terme désigne une frontière qui n'est plus officiellement reconnue mais laisse des traces ?",
+    "a": "Une frontière fantôme."
+  }
+],
             'g-rural': [
-                {"q": "Comment nomme-t-on le mouvement de repeuplement des campagnes par d'anciens citadins en quête d'un nouveau cadre de vie ?", "a": "La renaissance rurale (ou exode urbain / néoruralisme)."},
-                {"q": "Quel terme caractérise les espaces ruraux français souffrant de déclin démographique et économique, allant des Ardennes aux Pyrénées ?", "a": "La diagonale du vide (ou des faibles densités)."},
-                {"q": "Quel concept décrit le fait qu'un espace rural ait désormais plusieurs usages (agricole, résidentiel, touristique, environnemental) ?", "a": "La multifonctionnalité."},
-                {"q": "Comment nomme-t-on le modèle agricole intensif cherchant à maximiser les rendements par la mécanisation et la chimie ?", "a": "L'agriculture productiviste."},
-                {"q": "Comment appelle-t-on l'économie locale basée non plus sur la production agricole, mais sur la présence de résidents (retraités, touristes) consommant sur place ?", "a": "L'économie résidentielle (ou présentielle)."},
-                {"q": "Qu'est-ce que l'agrotourisme (ou tourisme vert) ?", "a": "Une forme de tourisme pratiquée en milieu rural, souvent liée à la découverte du monde agricole et de la nature."},
-                {"q": "Quel type de conflit éclate souvent dans les espaces ruraux entre différents acteurs (agriculteurs, néoruraux, écologistes) autour de l'utilisation d'une ressource ou d'un espace ?", "a": "Le conflit d'usage."},
-                {"q": "Comment appelle-t-on le processus de transformation des terres agricoles et naturelles par l'extension de l'habitat et des infrastructures ?", "a": "L'artificialisation des sols."},
-                {"q": "Quel type d'agriculture vise à produire tout en respectant les écosystèmes et en minimisant les intrants chimiques ?", "a": "L'agriculture biologique (ou l'agroécologie)."},
-                {"q": "Dans les pays des Suds, comment nomme-t-on les petites exploitations agricoles destinées principalement à nourrir la famille paysanne ?", "a": "L'agriculture vivrière."}
-            ],
+      {
+        "q": "Comment nomme-t-on le mouvement de repeuplement des campagnes par d'anciens citadins en quête d'un nouveau cadre de vie ?",
+        "a": "La renaissance rurale (ou exode urbain / néoruralisme)."
+      },
+      {
+        "q": "Quel géographe français a théorisé la \"renaissance rurale\" dès 1990 dans son ouvrage éponyme ?",
+        "a": "Bernard Kayser."
+      },
+      {
+        "q": "Comment appelle-t-on l'étalement de la ville sur l'espace rural environnant, transformant les communes agricoles en communes dortoirs ?",
+        "a": "La périurbanisation."
+      },
+      {
+        "q": "Qu'est-ce que la \"gentrification rurale\" ?",
+        "a": "L'embourgeoisement des campagnes attractives par l'arrivée de populations aisées, entraînant une hausse des prix de l'immobilier et une transformation des paysages."
+      },
+      {
+        "q": "Quel terme désigne le phénomène d'installation de citadins dans l'espace rural tout en gardant un mode de vie, des mobilités et un emploi urbains ?",
+        "a": "La rurbanisation."
+      },
+      {
+        "q": "Quel impact la crise de la COVID-19 et le développement du télétravail ont-ils eu sur l'espace rural ?",
+        "a": "Une accélération des mobilités résidentielles vers les campagnes périurbaines et les petites centralités, renforçant leur attractivité."
+      },
+      {
+        "q": "Comment se nomme le document d'urbanisme intercommunal qui vise notamment à planifier l'aménagement et à limiter l'étalement urbain dans les campagnes ?",
+        "a": "Le PLUi (Plan Local d'Urbanisme intercommunal) ou le SCoT (Schéma de Cohérence Territoriale)."
+      },
+      {
+        "q": "Quel type de population est particulièrement moteur de la vitalité démographique des espaces ruraux du sud et du littoral ouest de la France ?",
+        "a": "Les jeunes retraités (logique d'héliotropisme et d'halotropisme alimentant l'économie présentielle)."
+      },
+      {
+        "q": "Qu'est-ce que les \"mobilités pendulaires\" très présentes dans les campagnes périurbaines ?",
+        "a": "Les déplacements quotidiens aller-retour entre le domicile (situé en zone rurale ou périurbaine) et le lieu de travail (pôle urbain)."
+      },
+      {
+        "q": "Quel est le principal défi logistique et financier pour les municipalités rurales face à l'arrivée rapide de néo-ruraux ?",
+        "a": "Le financement, l'adaptation et le calibrage des équipements publics (écoles, crèches, réseaux d'assainissement) face à une demande urbaine."
+      },
+      {
+        "q": "Qu'est-ce que l'exode rural ?",
+        "a": "Le départ définitif des populations des campagnes vers les villes, motivé par la recherche d'emplois ou de meilleures conditions de vie."
+      },
+      {
+        "q": "Quelle est la principale cause structurelle de l'exode rural dans de nombreux pays en développement ?",
+        "a": "La pression démographique sur la terre, la pauvreté paysanne et l'absence de réformes agraires équitables."
+      },
+      {
+        "q": "Comment nomme-t-on l'appropriation à grande échelle de terres agricoles par des États, des investisseurs étrangers ou des FTN au détriment des paysans locaux ?",
+        "a": "Le land grabbing (ou accaparement des terres)."
+      },
+      {
+        "q": "Quel phénomène environnemental aggrave les départs massifs des ruraux au Sahel ou dans la Corne de l'Afrique ?",
+        "a": "Les crises climatiques (sécheresses récurrentes, dégradation des sols, désertification)."
+      },
+      {
+        "q": "Qu'est-ce que les \"remises\" (ou remesas) ?",
+        "a": "Les transferts financiers envoyés par les migrants (urbains ou internationaux) à leurs familles restées dans les villages ruraux."
+      },
+      {
+        "q": "Comment l'exode rural impacte-t-il la structure sociale et le travail dans les campagnes des pays des Suds ?",
+        "a": "Il provoque un vieillissement de la main-d'œuvre et une forte féminisation du travail agricole suite au départ des jeunes hommes."
+      },
+      {
+        "q": "Qu'est-ce que la \"désagrarianisation\" observée en Amérique latine et en Afrique subsaharienne ?",
+        "a": "La diminution progressive de l'importance de l'agriculture dans la composition des revenus et l'emploi des ménages ruraux."
+      },
+      {
+        "q": "Quel modèle agricole, diffusé dans les années 60-70, a paradoxalement accéléré l'exode des petits paysans incapables d'investir ?",
+        "a": "La Révolution verte (agriculture intensive basée sur les semences à haut rendement, engrais chimiques et mécanisation)."
+      },
+      {
+        "q": "Comment s'appellent les déplacements saisonniers de ruraux vers les villes ou les bassins agro-industriels sans installation définitive ?",
+        "a": "Les migrations circulaires (ou mobilités temporaires)."
+      },
+      {
+        "q": "Quelle conséquence spatiale l'exode rural massif a-t-il sur les métropoles des Suds ?",
+        "a": "La macrocéphalie urbaine et l'étalement de quartiers informels et précaires (bidonvilles, favelas, slums)."
+      },
+      {
+        "q": "Comment appelle-t-on traditionnellement l'espace allant des Ardennes aux Pyrénées caractérisé par de faibles densités de population et un vieillissement marqué ?",
+        "a": "La diagonale du vide (terme aujourd'hui remplacé par \"diagonale des faibles densités\")."
+      },
+      {
+        "q": "Qu'est-ce que la \"déprise agricole\" ?",
+        "a": "L'abandon progressif de l'activité agricole sur un territoire, conduisant à la friche puis au reboisement naturel des terres."
+      },
+      {
+        "q": "Quel est le profil démographique dominant dans les espaces de déprise rurale (ou hyper-ruralité) ?",
+        "a": "Un vieillissement prononcé de la population, avec un solde naturel fortement négatif et un solde migratoire atone."
+      },
+      {
+        "q": "Comment nomme-t-on le phénomène spatial de raréfaction de l'offre de soins dans les campagnes isolées ?",
+        "a": "La désertification médicale."
+      },
+      {
+        "q": "Qu'est-ce qu'une \"zone blanche\" en géographie de l'aménagement ?",
+        "a": "Un territoire qui n'est pas couvert par les réseaux de téléphonie mobile ou l'accès à internet à haut débit, renforçant l'enclavement."
+      },
+      {
+        "q": "Quel zonage l'État français a-t-il mis en place en 1995 pour soutenir fiscalement l'activité économique des territoires ruraux fragiles ?",
+        "a": "Les ZRR (Zones de Revitalisation Rurale), remplacées en 2024 par France Ruralités Revitalisation (FRR)."
+      },
+      {
+        "q": "Comment le retrait des services publics (écoles, trésoreries, gares, postes) affecte-t-il ces territoires ?",
+        "a": "Il dégrade la qualité de vie, décourage les nouvelles installations et aggrave la spirale de la dévitalisation."
+      },
+      {
+        "q": "Quel terme paysager désigne la reconquête forestière naturelle sur d'anciennes prairies ou terrasses cultivées ?",
+        "a": "La fermeture des paysages."
+      },
+      {
+        "q": "Qu'est-ce que le \"rewilding\" ou ré-ensauvagement ?",
+        "a": "La restauration spontanée ou accompagnée des processus écologiques naturels sur des terres libérées par la déprise humaine."
+      },
+      {
+        "q": "Quel type de structure est souvent soutenu par les municipalités (via l'ESS) pour maintenir une centralité dans un village dévitalisé ?",
+        "a": "Le commerce multiservices (bistrot de pays, épicerie-dépôt de pain-poste)."},
+      {
+        "q": "Quel modèle agricole a dominé en Europe depuis les années 1960, visant la maximisation des rendements via les intrants chimiques et la mécanisation ?",
+        "a": "Le modèle productiviste (ou agriculture intensive)."
+      },
+      {
+        "q": "Qu'est-ce que la PAC et quand a-t-elle été créée ?",
+        "a": "La Politique Agricole Commune, mise en place en 1962 par la CEE pour garantir l'autosuffisance alimentaire et moderniser les campagnes."
+      },
+      {
+        "q": "Quel aménagement foncier a consisté à regrouper les parcelles agricoles pour faciliter la mécanisation, modifiant profondément l'hydrologie et les paysages ruraux ?",
+        "a": "Le remembrement."
+      },
+      {
+        "q": "Qu'est-ce que l'\"openfieldisation\" ?",
+        "a": "La transformation de paysages traditionnels de bocage (champs clos de haies) en vastes champs ouverts pour l'agriculture intensive."
+      },
+      {
+        "q": "Que désigne le terme \"agrobusiness\" ou \"agriculture de firme\" ?",
+        "a": "Une agriculture hyper-capitalisée, gérée par des holdings financières ou des gestionnaires délégués, rompant avec le modèle de l'exploitation familiale."
+      },
+      {
+        "q": "Qu'est-ce que la \"transition agroécologique\" ?",
+        "a": "Le passage vers des systèmes agricoles durables s'appuyant sur les fonctionnalités des écosystèmes (réduction des intrants, préservation des sols, rotations longues)."
+      },
+      {
+        "q": "Que garantissent les Sigles Officiels d'Identification de la Qualité et de l'Origine (SIQO) comme l'AOP et l'IGP ?",
+        "a": "Ils garantissent un lien indissociable entre un produit, un savoir-faire spécifique et son terroir géographique d'origine."
+      },
+      {
+        "q": "Qu'est-ce qu'un \"circuit court\" dans le domaine agroalimentaire ?",
+        "a": "Un mode de commercialisation s'exerçant soit par la vente directe du producteur au consommateur, soit par la vente indirecte avec un seul intermédiaire."
+      },
+      {
+        "q": "Qu'est-ce que l'agritech (ou agriculture de précision) ?",
+        "a": "L'utilisation des nouvelles technologies (GPS, drones, capteurs, IA) pour optimiser les rendements et cibler l'usage des intrants."
+      },
+      {
+        "q": "Quel est le risque géographique des bassins de production hyper-spécialisés (ex: la Bretagne porcine) ?",
+        "a": "La vulnérabilité face aux crises économiques (effondrement des cours mondiaux) et sanitaires (épizooties), ainsi que de graves pollutions localisées (algues vertes)."
+      },
+      {
+        "q": "Qu'est-ce que l'économie résidentielle (ou présentielle) selon le géographe Laurent Davezies ?",
+        "a": "Une économie qui repose sur les revenus captés sur un territoire (retraites, salaires de navetteurs, tourisme) pour satisfaire les besoins de la population présente, indépendamment de la production locale."
+      },
+      {
+        "q": "Quel terme désigne la valorisation touristique du milieu agricole par les exploitants eux-mêmes (chambres d'hôtes à la ferme, visites) ?",
+        "a": "L'agritourisme."
+      },
+      {
+        "q": "Qu'est-ce qu'une \"aménité environnementale\" ?",
+        "a": "Un élément naturel ou paysager (calme, beauté d'un site, climat) qui augmente l'attractivité résidentielle ou touristique d'un espace rural."
+      },
+      {
+        "q": "Comment le patrimoine vernaculaire (granges, burons, moulins) est-il aujourd'hui recyclé dans les campagnes dynamiques ?",
+        "a": "Il est réhabilité pour être transformé en hébergement touristique de charme ou en résidence secondaire/principale."
+      },
+      {
+        "q": "Quel est l'impact social de la multiplication des résidences secondaires dans un espace rural littoral ou de montagne très prisé ?",
+        "a": "L'envolée des prix de l'immobilier, évincant les populations locales et les travailleurs saisonniers du marché du logement."
+      },
+      {
+        "q": "Quelle structure territoriale française (souvent rurale) a pour double mission le développement économique et la protection du patrimoine naturel et culturel ?",
+        "a": "Le Parc Naturel Régional (PNR)."
+      },
+      {
+        "q": "Qu'est-ce que le \"tourisme vert\" ?",
+        "a": "Une forme de tourisme centrée sur la nature, le calme, les loisirs de plein air et la découverte des terroirs ruraux."
+      },
+      {
+        "q": "Quel label national contribue fortement à la mise en tourisme et parfois à la \"muséification\" des villages patrimoniaux ?",
+        "a": "Les \"Plus Beaux Villages de France\"."
+      },
+      {
+        "q": "Qu'est-ce que l'hyper-spécialisation touristique d'un espace rural (ex: stations de ski) ?",
+        "a": "La dépendance économique excessive à une mono-activité touristique, créant une vulnérabilité climatique et une précarité de l'emploi (saisonniers)."
+      },
+      {
+        "q": "Comment appelle-t-on le processus global par lequel un lieu est aménagé et pensé pour accueillir des flux touristiques ?",
+        "a": "La mise en tourisme."
+      },
+      {
+        "q": "Qu'est-ce qu'un Système Productif Local (SPL) ou \"district industriel\" en géographie ?",
+        "a": "Une forte concentration d'entreprises (souvent des PME/TPE) sur un territoire donné, travaillant en réseau dans une même filière spécialisée (ex: coutellerie à Thiers, lunetterie dans le Jura)."
+      },
+      {
+        "q": "Quel type d'industrie est historiquement ancré dans l'espace rural car il dépend directement de la ressource agricole ?",
+        "a": "L'industrie agroalimentaire (coopératives, abattoirs, laiteries, usines de transformation)."
+      },
+      {
+        "q": "Pourquoi les vastes zones d'activités logistiques (entrepôts) s'implantent-elles massivement dans les espaces ruraux et périurbains ?",
+        "a": "Pour bénéficier d'un foncier abondant et peu onéreux, tout en profitant de la proximité des nœuds autoroutiers pour la desserte."
+      },
+      {
+        "q": "Qu'est-ce qu'un \"tiers-lieu\" en milieu rural ?",
+        "a": "Un espace physique hybride de sociabilité et de travail (coworking, fablab, réparation) favorisant l'innovation, le télétravail et l'entrepreneuriat local."
+      },
+      {
+        "q": "Comment la transition énergétique transforme-t-elle l'usage des sols et les paysages ruraux ?",
+        "a": "Par la multiplication d'infrastructures de production d'énergies renouvelables (parcs éoliens, fermes agrivoltaïques, unités de méthanisation)."
+      },
+      {
+        "q": "Qu'est-ce que la \"méthanisation\" dans les campagnes ?",
+        "a": "Un procédé industriel de valorisation des déchets agricoles (effluents d'élevage, résidus de cultures) pour produire du biogaz et un digestat fertilisant."
+      },
+      {
+        "q": "Quel secteur d'activité, ancré dans les bourgs-centres, est crucial pour le maintien de l'emploi local et l'entretien du bâti rural ?",
+        "a": "L'artisanat (en particulier les métiers du bâtiment et les services)."
+      },
+      {
+        "q": "Comment se matérialise spatialement la désindustrialisation dans certaines campagnes de tradition ouvrière (ex: vallées vosgiennes) ?",
+        "a": "Par la présence de vastes friches industrielles en fond de vallée, suite à la fermeture d'usines textiles ou métallurgiques."
+      },
+      {
+        "q": "Quel terme qualifie les gares TGV implantées en rase campagne (ex: gare de TGV Haute-Picardie) qui ont souvent peiné à créer de vastes pôles d'activités ?",
+        "a": "Les gares \"betteraves\"."
+      },
+      {
+        "q": "Quelles industries d'extraction transforment l'espace rural en zones industrielles enclavées avec un fort impact paysager ?",
+        "a": "L'exploitation des ressources du sous-sol (mines) et des matériaux de construction (carrières de granulats, sablières)."
+      },
+      {
+        "q": "Qu'est-ce qu'un \"conflit d'usage\" dans l'espace rural ?",
+        "a": "Une tension sociale et spatiale entre différents acteurs concernant l'utilisation, l'appropriation ou la gestion d'une même ressource ou d'un même lieu."
+      },
+      {
+        "q": "Quel aménagement agricole de stockage de l'eau cristallise de violents conflits écologiques et sociaux en France (ex: Sainte-Soline) ?",
+        "a": "Les réserves de substitution (couramment dénoncées sous le terme de \"mégabassines\")."
+      },
+      {
+        "q": "Qu'est-ce que le syndrome NIMBY (Not In My BackYard) ?",
+        "a": "L'opposition d'habitants à l'implantation d'une infrastructure (éolienne, LGV, décharge) près de chez eux, par crainte des nuisances, tout en n'en refusant pas l'utilité générale."
+      },
+      {
+        "q": "Comment la loi française de 2021 a-t-elle réagi face aux plaintes de certains néo-ruraux contre le chant du coq ou l'odeur du fumier ?",
+        "a": "En inscrivant les sons et odeurs des campagnes au titre du \"patrimoine sensoriel\" de la Nation pour limiter les recours abusifs."
+      },
+      {
+        "q": "Quel type de conflit oppose fréquemment les agriculteurs conventionnels et les maires ou riverains des zones d'habitat rural ?",
+        "a": "Les conflits sanitaires et environnementaux liés à l'épandage de produits phytosanitaires (pesticides) près des maisons."
+      },
+      {
+        "q": "Qu'est-ce qu'une ZAD (Zone à Défendre) ?",
+        "a": "Un espace rural illégalement occupé par des militants écologistes pour bloquer la réalisation d'un grand projet d'aménagement jugé écocidaire (ex: aéroport de Notre-Dame-des-Landes)."
+      },
+      {
+        "q": "Quels usagers de la nature entrent souvent en conflit pour le partage spatial et sécuritaire des forêts domaniales et privées ?",
+        "a": "Les chasseurs, les promeneurs/vététistes et les exploitants forestiers."
+      },
+      {
+        "q": "Que sont les ZNT (Zones de Non Traitement) ?",
+        "a": "Des distances minimales de sécurité à respecter entre les zones d'épandage de pesticides agricoles et les habitations ou cours d'eau."
+      },
+      {
+        "q": "Pourquoi l'implantation de parcs éoliens fracture-t-elle souvent la cohésion sociale des villages ruraux ?",
+        "a": "Elle crée une inégalité entre les propriétaires fonciers/communes qui touchent une rente financière, et les riverains qui subissent la pollution visuelle et sonore."
+      },
+      {
+        "q": "Quels outils institutionnels sont censés désamorcer ces conflits d'usage avant l'aménagement de l'espace ?",
+        "a": "La démocratie participative, le débat public, la concertation citoyenne et les enquêtes publiques."
+      },
+      {
+        "q": "Qu'est-ce que l'artificialisation des sols ?",
+        "a": "Le processus de perte des qualités écologiques et agronomiques d'un sol par son aménagement (imperméabilisation, construction d'infrastructures ou de bâti)."
+      },
+      {
+        "q": "Que signifie l'objectif réglementaire \"ZAN\" instauré par la loi Climat et Résilience de 2021 ?",
+        "a": "Zéro Artificialisation Nette à l'horizon 2050 (et réduction de 50% de la consommation d'espaces naturels, agricoles et forestiers d'ici 2031)."
+      },
+      {
+        "q": "Qu'est-ce que le \"mitage\" des espaces ruraux ?",
+        "a": "L'éparpillement désordonné de constructions isolées (souvent pavillonnaires) au milieu des terres agricoles ou naturelles."
+      },
+      {
+        "q": "Quel organisme public régule le marché foncier rural français pour lutter contre la spéculation et favoriser l'installation des agriculteurs ?",
+        "a": "La SAFER (Société d'Aménagement Foncier et d'Établissement Rural)."
+      },
+      {
+        "q": "Qu'est-ce que la \"pression foncière\" ?",
+        "a": "Une très forte demande en terrains (pour bâtir ou cultiver) par rapport à l'offre disponible, entraînant une flambée des prix."
+      },
+      {
+        "q": "Pourquoi le rachat de terres agricoles par des sociétés holding (ou des fonds étrangers) suscite-t-il l'inquiétude ?",
+        "a": "Ce processus de financiarisation contourne le contrôle foncier, favorise les fermes-usines et bloque l'installation de la nouvelle génération d'agriculteurs."
+      },
+      {
+        "q": "Qu'est-ce que la \"rétention foncière\" ?",
+        "a": "Le fait pour un propriétaire de conserver des terres non exploitées ou constructibles sans les vendre, souvent pour spéculer sur leur valeur future."
+      },
+      {
+        "q": "Comment la stratégie d'urbanisme dite BIMBY (Build In My BackYard) tente-t-elle de lutter contre l'étalement urbain rural ?",
+        "a": "En favorisant la densification douce par la construction de nouveaux logements directement dans les grands jardins des pavillons existants."
+      },
+      {
+        "q": "Quelle est la principale catégorie spatiale victime de l'étalement urbain et des zones commerciales en périphérie des villes ?",
+        "a": "La SAU (Surface Agricole Utile), qui correspond souvent aux terres les plus planes et fertiles."
+      },
+      {
+        "q": "Comment la multifonctionnalité de l'espace rural influence-t-elle la valeur du sol ?",
+        "a": "Elle met en concurrence plusieurs usages (logement, loisirs, agriculture, énergie) sur un même terrain, ce qui provoque une hausse globale du coût du foncier."
+      },
+      {
+        "q": "Qu'est-ce que le réseau européen Natura 2000 ?",
+        "a": "Un maillage de sites naturels ou semi-naturels de l'UE visant à préserver les espèces et habitats menacés, tout en maintenant les activités socio-économiques durables."
+      },
+      {
+        "q": "Quelle différence spatiale majeure existe-t-il entre la \"zone cœur\" et l'\"aire d'adhésion\" d'un Parc National français ?",
+        "a": "La zone cœur est sanctuarisée et strictement réglementée, tandis que l'aire d'adhésion est un espace de vie rurale visant un développement durable."
+      },
+      {
+        "q": "Qu'est-ce que la Trame Verte et Bleue (TVB) ?",
+        "a": "Un réseau écologique constitué de réservoirs de biodiversité et de corridors écologiques terrestres (verte) et aquatiques (bleue) pour permettre le déplacement des espèces."
+      },
+      {
+        "q": "Qu'est-ce que l'agroforesterie ?",
+        "a": "Une pratique consistant à associer la plantation d'arbres à des cultures ou des pâturages sur une même parcelle, pour restaurer les sols et la biodiversité."
+      },
+      {
+        "q": "Quel conflit environnemental emblématique oppose les éleveurs (pastoralisme) et les politiques de conservation de la faune sauvage ?",
+        "a": "La protection et la recolonisation des territoires par les grands prédateurs (loups, ours) qui attaquent les troupeaux."
+      },
+      {
+        "q": "Que désigne la notion de \"services écosystémiques\" appliqués à l'espace rural ?",
+        "a": "Les multiples bénéfices socio-économiques que les humains tirent du bon fonctionnement des écosystèmes (pollinisation, régulation du climat, filtration de l'eau, loisirs)."
+      },
+      {
+        "q": "Qu'est-ce qu'une MAEC (Mesure Agro-Environnementale et Climatique) ?",
+        "a": "Un contrat par lequel la PAC rémunère un agriculteur qui s'engage volontairement dans des pratiques vertueuses pour l'environnement (ex: maintien de prairies, retard de fauche)."
+      },
+      {
+        "q": "Quel aménagement paysager traditionnel, victime du remembrement, est aujourd'hui replanté pour lutter contre l'érosion et abriter la biodiversité ?",
+        "a": "La haie bocagère."
+      },
+      {
+        "q": "Pourquoi la protection des \"zones humides\" (tourbières, marais, prairies inondables) est-elle aujourd'hui prioritaire dans les campagnes ?",
+        "a": "Car après des décennies de drainage agricole, on reconnaît leur rôle crucial de filtre biologique, de réserve de biodiversité et d'éponge anti-inondations/sécheresses."
+      },
+      {
+        "q": "Que dénoncent souvent les acteurs ruraux traditionnels sous le terme péjoratif de \"mise sous cloche\" de la nature ?",
+        "a": "Les politiques de sanctuarisation stricte (réserves intégrales) qui excluent la présence humaine et les usages productifs coutumiers d'un territoire naturel."},
+],
             'g-env': [
-                {"q": "Quel terme géologique, proposé par Paul Crutzen, désigne l'époque actuelle où l'homme est devenu la principale force de transformation de la Terre ?", "a": "L'Anthropocène."},
-                {"q": "Quelle différence fait-on entre un aléa et une vulnérabilité dans la définition d'un risque ?", "a": "L'aléa est le phénomène naturel ou technologique potentiellement dangereux; la vulnérabilité est la fragilité de la société qui y fait face."},
-                {"q": "Comment nomme-t-on la transformation des milieux naturels due à l'action de l'homme (urbanisation, déforestation, pollution) ?", "a": "L'anthropisation (ou hybridation des milieux)."},
-                {"q": "Quelle notion désigne l'ensemble des actions visant à réduire les émissions de gaz à effet de serre pour limiter le changement climatique ?", "a": "L'atténuation."},
-                {"q": "Quelle notion désigne les mesures prises pour réduire la vulnérabilité des sociétés face aux effets inévitables du changement climatique ?", "a": "L'adaptation."},
-                {"q": "Qu'est-ce que la 'malédiction des matières premières' (ou syndrome hollandais) ?", "a": "Le paradoxe selon lequel les pays riches en ressources naturelles ont souvent une croissance plus faible et plus d'inégalités et de conflits."},
-                {"q": "Quel concept juridique international vise à répartir équitablement les responsabilités et les impacts environnementaux à l'échelle mondiale ?", "a": "La justice environnementale (ou climatique)."},
-                {"q": "Quel terme désigne un espace délimité juridiquement pour préserver ses écosystèmes et sa biodiversité face à l'anthropisation ?", "a": "Une aire naturelle protégée (ex: Parc national)."},
-                {"q": "Comment nomme-t-on le fait de concilier la protection de la nature avec le développement économique et social des populations locales ?", "a": "Le développement durable."},
-                {"q": "Quel terme désigne l'ensemble des gaz, produits par les activités humaines, responsables de l'augmentation de la température moyenne de la Terre ?", "a": "Les gaz à effet de serre (GES)."}
-            ]
+  {
+    "q": "﻿Dans la géographie vidalienne classique, quel terme était utilisé pour désigner l'objet d'étude aujourd'hui nommé « environnement » ?",
+    "a": "Le terme « milieu » (ou milieu géographique)."
+  },
+  {
+    "q": "Selon les géographes Dufour et Lespez (2024), d'où provient étymologiquement le terme « environnement » ?",
+    "a": "Il vient de l'anglais et de l'écologie scientifique anglo-saxonne."
+  },
+  {
+    "q": "Qui a employé pour la première fois en France le terme « environnement » comme synonyme de « milieu géographique » en 1942 ?",
+    "a": "Le géographe Albert Demangeon."
+  },
+  {
+    "q": "Quelles sont les trois composantes que l'environnement désigne dans la littérature anglo-saxonne des années 1970 ?",
+    "a": "Le milieu physique (système abiotique), le milieu physique anthropisé et la société elle-même."
+  },
+  {
+    "q": "Comment définit-on la notion de « géosystème » promue par certains géographes ?",
+    "a": "Un système où les environnements anthropisés intègrent des phénomènes ou objets d'origine anthropique et biophysique en interaction."
+  },
+  {
+    "q": "Quel concept, proposé par Bertrand en 1978, articule les approches matérielles, représentationnelles et socio-politiques de l'espace ?",
+    "a": "Le concept de géosystème-territoire-paysage (GTP)."
+  },
+  {
+    "q": "Selon Bertrand (1978), quel terme définit l'union intime entre les facteurs sociaux et écologiques dans un espace donné ?",
+    "a": "La « combinaison socio-écologique »."
+  },
+  {
+    "q": "Pourquoi l'écologie a-t-elle abandonné l'idée d'« équilibre naturel » au cours des 40 dernières années ?",
+    "a": "Pour promouvoir une conception de la nature en changement constant où les perturbations sont considérées comme normales."
+  },
+  {
+    "q": "Dans le cadre des socio-systèmes, quels sont les trois piliers qui accompagnent les études sur la résilience ?",
+    "a": "L'adaptation, la durabilité et les services écosystémiques."
+  },
+  {
+    "q": "Quelles sont les trois catégories d'écosystèmes proposées par les écologues pour classer les systèmes anthropisés ?",
+    "a": "Les configurations historiques, les écosystèmes hybrides et les nouveaux écosystèmes."
+  },
+  {
+    "q": "Selon Yvette Veyret (2003), quel terme composé désigne le faisceau complexe d'interrelations spatiales entre l'homme et les milieux ?",
+    "a": "Le terme de « géo-environnement »."
+  },
+  {
+    "q": "En géographie, quelle est la définition fondamentale d'une « ressource » ?",
+    "a": "Tout ce qui permet de satisfaire un besoin vital ou superflu pour une société donnée à un moment donné."
+  },
+  {
+    "q": "Pourquoi dit-on que la ressource est une « production sociale » ?",
+    "a": "Car elle n'existe que par l'usage et le besoin social d'une société, reflétant son degré d'anthropisation."
+  },
+  {
+    "q": "À partir de quel critère temporel une ressource est-elle jugée « non renouvelable » à l'échelle humaine ?",
+    "a": "Lorsque sa reconstitution excède une ou plusieurs générations humaines."
+  },
+  {
+    "q": "Quel concept de Grataloup (2023) illustre la prise de conscience que les sociétés habitent une seule et même entité biophysique ?",
+    "a": "Le « bouclage » du monde (ou finitude planétaire)."
+  },
+  {
+    "q": "Pourquoi Jean Demangeot utilisait-il des guillemets pour le terme « naturels » en parlant des milieux en 1984 ?",
+    "a": "Pour souligner qu'un milieu est forcément localisé, limité par l'homme et souvent entretenu par lui."
+  },
+  {
+    "q": "Dans quelle mesure un milieu anthropisé comme un marais peut-il redevenir « sauvage » ?",
+    "a": "S'il n'est plus entretenu par les sociétés, il finit par s'assécher ou évoluer sans intervention humaine."
+  },
+  {
+    "q": "Quels sont les deux grands paradigmes historiques de la protection de la nature nés aux États-Unis ?",
+    "a": "Le préservationnisme et le conservationnisme."
+  },
+  {
+    "q": "Quel est l'objectif principal du préservationnisme porté par John Muir ?",
+    "a": "La protection maximale de l'environnement en excluant totalement les sociétés des espaces protégés."
+  },
+  {
+    "q": "En quoi le conservationnisme de Gifford Pinchot diffère-t-il du préservationnisme ?",
+    "a": "Il envisage l'environnement comme une ressource à gérer de manière rationnelle pour le maintien de l'usage humain."
+  },
+  {
+    "q": "À quel cadre international de 2015 répond l'approche intégrée de protection de l'environnement mélangeant usages et exigences écologiques ?",
+    "a": "Aux Objectifs de Développement Durable (ODD) de l'ONU."
+  },
+  {
+    "q": "Dans le contexte de la protection, que signifie le terme « Valorisation » ?",
+    "a": "La mise en valeur d'un environnement pour mieux faire vivre les sociétés tout en améliorant sa connaissance."
+  },
+  {
+    "q": "Qui est le chimiste à l'origine de la popularisation du terme « Anthropocène » en 2002 ?",
+    "a": "Paul Crutzen."
+  },
+  {
+    "q": "Quelle institution scientifique a officiellement récusé le qualificatif de nouvelle ère géologique pour l'Anthropocène en 2024 ?",
+    "a": "L'Union Géologique Internationale."
+  },
+  {
+    "q": "Quels sont les trois principaux piliers des perturbations anthropocéniques mondiales ?",
+    "a": "Le changement climatique global, l'effondrement de la biodiversité et les menaces croissantes sur les sociétés humaines."
+  },
+  {
+    "q": "Quel pourcentage des espèces animales et végétales serait menacé d'extinction si le réchauffement dépasse $+2$ °C ?",
+    "a": "Plus de $18$ % des espèces."
+  },
+  {
+    "q": "Quelles sont les caractéristiques climatiques spécifiques des milieux de haute montagne ?",
+    "a": "Une baisse de température de $0,5$ °C tous les $100$ m et des précipitations plus importantes (sauf en zone aride)."
+  },
+  {
+    "q": "Selon l'UICN, combien existe-t-il de catégories d'aires protégées (de la plus stricte à la plus souple) ?",
+    "a": "Il existe 6 catégories (de I à VI)."
+  },
+  {
+    "q": "Quelle est la définition spatiale d'une « forêt » selon la FAO ?",
+    "a": "Un espace de $0,5$ ha minimum avec des arbres d'au moins $5$ m de haut et un couvert d'au moins $10$ %."
+  },
+  {
+    "q": "Quel est le principal rôle écologique de la forêt concernant le cycle de l'eau ?",
+    "a": "L'évapotranspiration et la régulation des crues."
+  },
+  {
+    "q": "En 2025, quel pourcentage de la population mondiale devrait vivre à moins de $100$ km des côtes ?",
+    "a": "Environ $40$ % de la population mondiale."
+  },
+  {
+    "q": "Pourquoi le terme « désert » est-il considéré comme un abus de langage par Samuel Depraz ?",
+    "a": "Parce que presque tous les lieux du globe sont « habités » et pratiqués à divers degrés par les sociétés."
+  },
+  {
+    "q": "Quelle est la cause de l'apparition d'« îlots de chaleur » dans les milieux urbains ?",
+    "a": "La minéralisation de l'espace, l'absence de végétation et les émissions de gaz polluants."
+  },
+  {
+    "q": "Quelle formule mathématique permet de résumer les composantes d'un risque ?",
+    "a": "$Risque = Aléa \\times Vulnérabilité$."
+  },
+  {
+    "q": "Définition de l'« Aléa » en géographie des risques :",
+    "a": "La probabilité de survenue d'un événement négatif (phénomène physique)."
+  },
+  {
+    "q": "Définition de la « Vulnérabilité » dans le cadre d'un risque :",
+    "a": "Les effets prévisibles de l'aléa sur une société en fonction de son exposition et de sa capacité de réaction."
+  },
+  {
+    "q": "Pourquoi un séisme en plein désert ne constitue-t-il pas un risque majeur ?",
+    "a": "Parce que la vulnérabilité humaine (densité de population et biens) y est nulle ou très faible."
+  },
+  {
+    "q": "Qu'est-ce qu'un « risque induit », en prenant l'exemple du séisme de Fukushima en 2011 ?",
+    "a": "Un risque secondaire provoqué par l'aléa initial, comme le tsunami puis la catastrophe nucléaire."
+  },
+  {
+    "q": "Quel adjectif qualifie un risque présent partout, comme le risque d'inondation ?",
+    "a": "Un risque ubiquiste."
+  },
+  {
+    "q": "Quelle est la différence majeure entre une crue lente et une crue rapide (type oued) ?",
+    "a": "La crue lente cause généralement moins de décès mais des dommages économiques prolongés par la durée de la décrue."
+  },
+  {
+    "q": "Quelle directive européenne encadre les sites industriels présentant des risques majeurs ?",
+    "a": "La directive Seveso."
+  },
+  {
+    "q": "Quel gaz toxique a été libéré lors de la catastrophe de Bhopal en Inde en 1984 ?",
+    "a": "L'isocyanate de méthyle."
+  },
+  {
+    "q": "Comment appelle-t-on le phénomène où l'élévation des températures et des vents crée une évapotranspiration accélérée de la végétation ?",
+    "a": "La « sécheresse éclair » (flash drought)."
+  },
+  {
+    "q": "Selon l'IDA, quel pourcentage des personnes touchées par des catastrophes naturelles entre 1991 et 2005 vivait dans des pays en développement ?",
+    "a": "98 % des personnes."
+  },
+  {
+    "q": "Quels sont les deux facteurs principaux expliquant la vulnérabilité des populations pauvres face aux risques industriels ?",
+    "a": "La résidence à proximité des usines et la relégation des activités polluantes vers les périphéries moins chères."
+  },
+  {
+    "q": "Quel scandale sanitaire aux États-Unis a motivé la création de la notion de « racisme environnemental » ?",
+    "a": "La pollution au plomb de l'eau potable à Flint, Michigan."
+  },
+  {
+    "q": "Qu'est-ce que la « dette climatique » à l'échelle internationale ?",
+    "a": "L'idée que les pays industrialisés sont responsables du changement climatique dont les pays pauvres subissent les effets."
+  },
+  {
+    "q": "Quels sont les trois axes de la mitigation des risques ?",
+    "a": "La prévision, la protection et la prévention."
+  },
+  {
+    "q": "En quoi consiste la « résilience » d'une société face à une catastrophe ?",
+    "a": "Sa capacité à retrouver un fonctionnement normal après la survenue d'un événement dévastateur."
+  },
+  {
+    "q": "Quel est le risque de construire des digues trop hautes ou mal entretenues ?",
+    "a": "Elles peuvent créer un faux sentiment de sécurité et aggraver les dommages si elles cèdent brutalement."
+  },
+  {
+    "q": "Quel aménagement radical a été pris à Valence (Espagne) suite à l'inondation de 1957 ?",
+    "a": "Le détournement du fleuve Turia par le « Plan Sur »."
+  },
+  {
+    "q": "Quel est l'effet pervers du détournement du Turia à Valence sur l'urbanisation ?",
+    "a": "L'ancien lit est devenu un espace vert, favorisant l'extension urbaine vers le sud et augmentant la vulnérabilité globale."
+  },
+  {
+    "q": "Quelle est la différence fondamentale entre le climat et la météo ?",
+    "a": "La météo est la variabilité à court terme, tandis que le climat se fonde sur des moyennes sur le long terme."
+  },
+  {
+    "q": "Comment appelle-t-on la période de refroidissement climatique qui a duré de 1300 à 1860 environ ?",
+    "a": "Le Petit âge glaciaire."
+  },
+  {
+    "q": "Quel historien célèbre a documenté le Petit âge glaciaire en Europe ?",
+    "a": "Emmanuel Le Roy Ladurie."
+  },
+  {
+    "q": "Depuis 1850, de combien de degrés Celsius la température moyenne planétaire a-t-elle augmenté ?",
+    "a": "$+1,1$ °C."
+  },
+  {
+    "q": "Quelles activités humaines contribuent à plus de 75 % des émissions mondiales de GES ?",
+    "a": "La combustion des énergies fossiles (charbon, pétrole, gaz)."
+  },
+  {
+    "q": "Quels sont les quatre premiers émetteurs mondiaux de $CO_2$ en 2023 ?",
+    "a": "La Chine, les États-Unis, l'Inde et l'Union européenne."
+  },
+  {
+    "q": "Pourquoi le réchauffement de l'Arctique est-il plus rapide que la moyenne mondiale ?",
+    "a": "À cause de la fonte de la banquise qui réduit l'albedo (réflection des rayons solaires)."
+  },
+  {
+    "q": "Dans le cadre climatique, que signifie l'« Atténuation » (mitigation) ?",
+    "a": "Agir sur les causes en réduisant les émissions de gaz à effet de serre."
+  },
+  {
+    "q": "Dans le cadre climatique, que signifie l'« Adaptation » ?",
+    "a": "Agir sur les impacts en limitant l'exposition et la sensibilité des sociétés."
+  },
+  {
+    "q": "Quel organe de l'ONU est chargé d'évaluer les connaissances scientifiques sur le changement climatique ?",
+    "a": "Le GIEC (Groupe d'experts Intergouvernemental sur l'Évolution du Climat)."
+  },
+  {
+    "q": "Quel accord international de 2015 vise à contenir l'augmentation des températures bien en dessous de $2$ °C ?",
+    "a": "L'Accord de Paris."
+  },
+  {
+    "q": "Quel est l'objectif du concept de « net zéro émission » ?",
+    "a": "Atteindre un bilan nul entre ce qui est émis et ce qui est recapté."
+  },
+  {
+    "q": "Quelle est la spécificité d'un Parc Naturel Régional (PNR) en France ?",
+    "a": "Il protège l'environnement tout en soutenant le développement économique local et l'acceptation sociale."
+  },
+  {
+    "q": "Comment appelle-t-on les aires marines protégées situées en dehors des ZEE ?",
+    "a": "Les zones BBNJ (Biodiversity Beyond National Jurisdiction)."
+  },
+  {
+    "q": "Quel est le premier parc national créé au monde en 1872 ?",
+    "a": "Le parc de Yellowstone (États-Unis)."
+  },
+  {
+    "q": "À quel type d'espace protégé appartient la catégorie II de l'UICN ?",
+    "a": "Aux Parcs Nationaux."
+  },
+  {
+    "q": "Qu'est-ce qu'un « parc de papier » (paper park) ?",
+    "a": "Un espace protégé qui n'existe que sur les cartes mais n'est pas géré ou surveillé dans la pratique."
+  },
+  {
+    "q": "Quel phénomène paradoxal touche les lieux emblématiques classés à l'UNESCO ?",
+    "a": "Le classement renforce la protection mais augmente aussi la fréquentation touristique, causant parfois des dégradations."
+  },
+  {
+    "q": "Quel est l'impact de l'acidification des océans sur les récifs coralliens ?",
+    "a": "Elle fragilise leur squelette calcaire et menace la biodiversité marine associée."
+  },
+  {
+    "q": "Pourquoi les mangroves sont-elles considérées comme des « nurseries » ?",
+    "a": "Parce qu'elles abritent et protègent de nombreuses espèces marines lors de leur reproduction."
+  },
+  {
+    "q": "Quelle proportion de l'oxygène de la planète est générée par l'océan ?",
+    "a": "50 % de l'oxygène."
+  },
+  {
+    "q": "Quel est le principal moteur du recul des glaciers de montagne ?",
+    "a": "Le réchauffement climatique anthropique."
+  },
+  {
+    "q": "Quelle ville française est identifiée comme l'une des plus touchées par le réchauffement climatique en 2100 selon le Berliner Morgenpost ?",
+    "a": "La métropole de Nantes."
+  }
+],
         };
 
         const quizState = {}; // Stocke l'index actuel pour chaque onglet
